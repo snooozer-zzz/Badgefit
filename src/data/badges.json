@@ -1,0 +1,682 @@
+[
+  {
+    "slug": "armour",
+    "name": "Armour",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6a806805-09cb-42e7-939d-b7316abf73a9/armour.png"
+  },
+  {
+    "slug": "artillery",
+    "name": "Artillery",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/df313eda-f8f9-4177-9acf-849838c08995/artillery.png"
+  },
+  {
+    "slug": "commando",
+    "name": "Commando",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/b6ebcd93-1dd1-436c-b5e4-5bf4ae261300/commando.png"
+  },
+  {
+    "slug": "engineer",
+    "name": "Engineer",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/dffff85c-e672-4b8b-89ba-0b8cd7ff7508/engineer.png"
+  },
+  {
+    "slug": "guards",
+    "name": "Guards",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/697974c5-8cd7-451c-ab1c-0ba5f8e056fc/guards-1.png"
+  },
+  {
+    "slug": "infantry",
+    "name": "Infantry",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/1a93cad5-eaf5-42e6-8c45-6f5227732277/infantry.png"
+  },
+  {
+    "slug": "intelligence",
+    "name": "Intelligence",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6026342f-3810-4283-9597-8083a0abccb3/intelligence-1.png"
+  },
+  {
+    "slug": "logistics",
+    "name": "Logistics",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/9ebe99b1-67eb-4e73-9159-d90daa585c5d/logistics-1.png"
+  },
+  {
+    "slug": "manpower",
+    "name": "Manpower",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/2f0e06ac-d2c3-44b1-af95-903705a61504/manpower-1.png"
+  },
+  {
+    "slug": "medical",
+    "name": "Medical",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/067cf049-5bfb-49f7-b76c-6598e7686f72/medical.png"
+  },
+  {
+    "slug": "military-police",
+    "name": "Military Police",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/51ff8beb-650d-418a-bf9c-7e889d8136ef/military-police-1.png"
+  },
+  {
+    "slug": "signal",
+    "name": "Signal",
+    "category": "arms",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/4c16e0b9-d239-4c2f-8666-3e1262596d24/signal.png"
+  },
+  {
+    "slug": "gold-military-free-fall-parachutist",
+    "name": "Gold Military Free Fall Parachutist",
+    "category": "exceptional-skills",
+    "status": "todo",
+    "widthMm": 60,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/c9476234-198e-4ec7-9832-47ae92a46efe/gold-military-free-fall-parachutist.png",
+    "notes": "Highest order"
+  },
+  {
+    "slug": "advanced-military-free-fall-parachutist",
+    "name": "Advanced Military Free Fall Parachutist",
+    "category": "exceptional-skills",
+    "status": "todo",
+    "widthMm": 60,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6f4654d9-da39-4083-a870-9811a7c90a3d/advance-military-free-fall-parachutist.png",
+    "notes": "Second order"
+  },
+  {
+    "slug": "basic-military-free-fall-parachutist",
+    "name": "Basic Military Free Fall Parachutist",
+    "category": "exceptional-skills",
+    "status": "todo",
+    "widthMm": 60,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/7975bb55-48b5-483a-b0e4-1420da89a5af/basic-military-free-fall-parachutist.png",
+    "notes": "Third order"
+  },
+  {
+    "slug": "master-parachutist",
+    "name": "Master Parachutist",
+    "category": "exceptional-skills",
+    "status": "todo",
+    "widthMm": 60,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/a8ba7925-2708-4f84-a6b5-3a0541ecf01b/master-parachutist.png",
+    "notes": "Highest order"
+  },
+  {
+    "slug": "senior-parachutist",
+    "name": "Senior Parachutist",
+    "category": "exceptional-skills",
+    "status": "todo",
+    "widthMm": 60,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/83f21cc8-002f-4ee1-8f64-8cd64cc7c44d/senior-parachutist.png",
+    "notes": "Second order"
+  },
+  {
+    "slug": "basic-parachutist",
+    "name": "Basic Parachutist",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/5a66ca7f-6017-43ce-a33d-b707265539f0/basic-parachutist.png"
+  },
+  {
+    "slug": "basic-chemical-biological-radiological-disposal",
+    "name": "Basic Chemical Biological Radiological Disposal",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/d5cb15e1-e3c4-4cb8-84f7-ac2004db3ea3/basic-chemical-biological-radiological-disposal.png"
+  },
+  {
+    "slug": "advanced-chemical-biological-radiological-defence",
+    "name": "Advanced Chemical Biological Radiological Defence",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/ec9805d5-9b32-43f7-ae13-340f590be1ab/advanced-chemical-biological-radiological-defence.png"
+  },
+  {
+    "slug": "jungle-confidence-course",
+    "name": "Jungle Confidence Course",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/cc881c3a-996f-44be-9cd3-155051eff21f/jungle-confidence-course.png"
+  },
+  {
+    "slug": "advanced-jungle-confidence-course",
+    "name": "Advanced Jungle Confidence Course",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/c0dd711e-3bad-40d5-be1d-e40d8c9fbdfb/advanced-jungle-confidence-course.png"
+  },
+  {
+    "slug": "master-jungle-confidence-course",
+    "name": "Master Jungle Confidence Course",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/4d4ed881-c425-4c07-992f-75ca4a9c22d1/master-jungle-confidence-course.png"
+  },
+  {
+    "slug": "combat-skills",
+    "name": "Combat Skills",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/034b4ef0-4af1-4a8e-a08f-cd8a6d544600/combat-skills.png"
+  },
+  {
+    "slug": "advanced-combat-skills",
+    "name": "Advanced Combat Skills",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/641771c4-b1a8-4e29-9de5-8e00e0652993/advanced-combat-skills.png"
+  },
+  {
+    "slug": "master-combat-skills",
+    "name": "Master Combat Skills",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/0ae54c8d-6352-42b2-b8db-bd634376ea9f/master-combat-skills.png"
+  },
+  {
+    "slug": "basic-explosive-ordnance-disposal",
+    "name": "Basic Explosive Ordnance Disposal",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/1e7c1a79-03ec-404c-8cc4-81b5c8253ca7/basic-explosive-ordnance-disposal.png"
+  },
+  {
+    "slug": "advanced-explosive-ordnance-disposal",
+    "name": "Advanced Explosive Ordnance Disposal",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/9201e3c3-01e9-4b9d-8bce-eac4cd94c152/advanced-explosive-ordnance-disposal.png"
+  },
+  {
+    "slug": "senior-explosive-ordnance-disposal",
+    "name": "Senior Explosive Ordnance Disposal",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/bd852969-faf6-42ad-9fda-fbae6d9ae551/senior-explosive-ordnance-disposal.png"
+  },
+  {
+    "slug": "sniper-basic",
+    "name": "Sniper Basic",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/f6845fdc-717a-4355-bbc9-97b534183ebd/sniper-basic.png"
+  },
+  {
+    "slug": "sniper-advanced",
+    "name": "Sniper Advanced",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/e1ce6f00-9b87-4e80-a470-225e62042e45/sniper-advanced.png"
+  },
+  {
+    "slug": "sniper-master",
+    "name": "Sniper Master",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/77a7dac6-946b-41ff-85ba-287a88f99cf1/sniper-master.png"
+  },
+  {
+    "slug": "rigger",
+    "name": "Rigger",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/c33db883-5a57-4f55-b666-70de2066c4f0/rigger.png"
+  },
+  {
+    "slug": "ammo-basic",
+    "name": "Ammo Basic",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/73ecf945-fda6-4f86-b513-d14a1d61f542/ammo-basic.png"
+  },
+  {
+    "slug": "ammo-advanced",
+    "name": "Ammo Advanced",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/7ca38c2e-5c89-4623-b058-ef1a07040edc/ammo-advanced.png"
+  },
+  {
+    "slug": "combat-fitness-trainer-basic",
+    "name": "Combat Fitness Trainer Basic",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/ad5e3861-36a1-4b4a-831c-1cd407d26550/combat-fitness-trainer-basic.png"
+  },
+  {
+    "slug": "combat-fitness-trainer-advanced",
+    "name": "Combat Fitness Trainer Advanced",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/bfe66599-22d0-4709-a322-bd9a97f216ca/combat-fitness-trainer-advanced.png"
+  },
+  {
+    "slug": "combat-fitness-trainer-master",
+    "name": "Combat Fitness Trainer Master",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/c99497be-c97c-428d-8408-91fb697e4b6d/combat-fitness-trainer-master.png"
+  },
+  {
+    "slug": "silent-precision-drill",
+    "name": "Silent Precision Drill",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/1ab8f24a-b76a-4db3-aafd-6616c60f994c/silent-precision-drill.png"
+  },
+  {
+    "slug": "musician",
+    "name": "Musician",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/7f711a38-d145-4fe6-a27e-5249a6ed5d6a/musician.png"
+  },
+  {
+    "slug": "director-of-music",
+    "name": "Director of Music",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/4c081675-09a7-4198-af9e-72e635c4028d/director-of-music.png"
+  },
+  {
+    "slug": "paramedic",
+    "name": "Paramedic",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/670c4398-054b-43f4-af45-5bd850d5e376/paramedics.png"
+  },
+  {
+    "slug": "taekwondo-black-belt",
+    "name": "Taekwondo Black Belt",
+    "category": "skills",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/c172a8d6-bd90-4370-8764-2613690f9735/taekwondo-black-belt.png"
+  },
+  {
+    "slug": "guards-tab",
+    "name": "Guards Tab",
+    "category": "skill-tabs",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/dccf42c2-ff49-4bdd-a108-1653d4927b0a/guards-tab.png"
+  },
+  {
+    "slug": "ranger-tab",
+    "name": "Ranger Tab",
+    "category": "skill-tabs",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/42fbdcd7-dfd5-406d-a6c3-1658a07dd436/ranger-tab.png"
+  },
+  {
+    "slug": "reconnaissance-recon-tab",
+    "name": "Reconnaissance (RECON) Tab",
+    "category": "skill-tabs",
+    "status": "todo",
+    "widthMm": 55,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6a5eeeae-d89d-40db-813d-dd4687cb345c/reconnaissance-recon-tab.png"
+  },
+  {
+    "slug": "ippt-gold",
+    "name": "IPPT Gold",
+    "category": "proficiency",
+    "status": "redrawn",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/7b5144ac-cee7-4582-84f1-10fb19a18b65/ippt-gold.png"
+  },
+  {
+    "slug": "ippt-silver",
+    "name": "IPPT Silver",
+    "category": "proficiency",
+    "status": "redrawn",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/dc4ad405-fe92-41de-a389-29270fae1a6a/ippt-silver.png"
+  },
+  {
+    "slug": "marksmanship",
+    "name": "Marksmanship",
+    "category": "proficiency",
+    "status": "redrawn",
+    "widthMm": 45,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/63f56554-ff71-4d78-9213-ac2469f4f34e/marksmanship.png"
+  },
+  {
+    "slug": "safe-and-courteous-driver",
+    "name": "Safe and Courteous Driver",
+    "category": "incentive",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/9c3087df-934f-42c3-bcfc-26443b70fadb/safe-and-courteous-driver.png"
+  },
+  {
+    "slug": "para-counsellor",
+    "name": "Para Counsellor",
+    "category": "identification",
+    "status": "todo",
+    "widthMm": 30,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/48f9dca6-6a41-4685-8389-3071c713b864/para-counsellor.png"
+  },
+  {
+    "slug": "3-div",
+    "name": "3 DIV",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/77732fdc-d926-4bed-9db7-20645c03886a/Screenshot%202026-01-28%20162017.jpg"
+  },
+  {
+    "slug": "6-div",
+    "name": "6 DIV",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/db810717-22d6-4538-ba5a-879e663bb193/Screenshot%202026-01-28%20161945.jpg"
+  },
+  {
+    "slug": "9-div",
+    "name": "9 DIV",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/ddf2b71a-aee6-43cc-8800-046314e90d1a/Screenshot%202026-01-28%20163205.png"
+  },
+  {
+    "slug": "2-pdf",
+    "name": "2 PDF",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/33bed367-1446-46e0-8b5d-82696e698ab9/IMG_1968.jpeg"
+  },
+  {
+    "slug": "ammo",
+    "name": "Ammo",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/80e801b5-cf38-421e-968f-026803f31288/Screenshot%202026-01-28%20162315.png"
+  },
+  {
+    "slug": "artillery",
+    "name": "Artillery",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/85fdd10e-9c13-4a4e-bbaf-b69367464127/Screenshot%202026-01-28%20161859-3.jpg"
+  },
+  {
+    "slug": "armour",
+    "name": "Armour",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/2216dae0-923b-40ab-b861-d013449974ba/Screenshot%202026-01-28%20162236.png"
+  },
+  {
+    "slug": "army-hr",
+    "name": "Army HR",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/1a855c08-d62e-4c34-9618-fdb0edd76282/Screenshot%202026-01-28%20163122.png"
+  },
+  {
+    "slug": "army-intelligence",
+    "name": "Army Intelligence",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/62bd0fe6-708d-435c-95f3-05abbf312b30/Army%20Intel.png"
+  },
+  {
+    "slug": "army-medical-service",
+    "name": "Army Medical Service",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/53d45540-e611-47f2-9f6a-403f17fcba78/Screenshot%202026-01-28%20162718.png"
+  },
+  {
+    "slug": "commando",
+    "name": "Commando",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/2cc6961b-d68c-4882-bbb9-d1e2358aca9d/Screenshot%202026-01-28%20163358.png"
+  },
+  {
+    "slug": "csscom",
+    "name": "CSSCOM",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/30dbf446-ec89-4dda-93b5-45a44ba49032/Screenshot%202026-01-28%20162154.jpg"
+  },
+  {
+    "slug": "engineer",
+    "name": "Engineer",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/933ba1a0-86ca-4da8-ba9e-99982a49e7cc/Screenshot%202026-01-28%20162824.png"
+  },
+  {
+    "slug": "general-staff",
+    "name": "General Staff",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/0c0d18fc-1ab3-4342-acc2-e16500174ba2/Screenshot%202026-01-28%20163232.png"
+  },
+  {
+    "slug": "guards",
+    "name": "Guards",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/8ceed6ae-e725-49e2-98bf-390c4382cdc2/Screenshot%202026-01-28%20162753.jpg"
+  },
+  {
+    "slug": "hq-supply-and-transport",
+    "name": "HQ Supply and Transport",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/ac069ec2-578b-4ddd-8729-70fc754eeb5f/Screenshot%202026-01-28%20162528.png"
+  },
+  {
+    "slug": "joint-formation",
+    "name": "Joint Formation",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/ac643330-8927-463b-8682-069c7f9ac637/Screenshot%202026-01-28%20163438.png"
+  },
+  {
+    "slug": "maintenance",
+    "name": "Maintenance",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/be0eb918-3c86-4f5d-8843-a87caf9d81b9/Screenshot%202026-01-28%20162428-2.jpg"
+  },
+  {
+    "slug": "medical-corps",
+    "name": "Medical Corps",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/10311fca-a6fe-41d9-a33c-c4170a696423/Screenshot%202026-01-28%20162402-3.jpg"
+  },
+  {
+    "slug": "mindef",
+    "name": "MINDEF",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/978a61f5-8122-4f25-8e86-66dd08a156fd/Screenshot%202026-01-28%20161721-2.jpg"
+  },
+  {
+    "slug": "military-police",
+    "name": "Military Police",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/e6c33576-e64b-4df9-8a33-50719c5b7273/Screenshot%202026-01-28%20162500.png"
+  },
+  {
+    "slug": "safti-mi",
+    "name": "SAFTI MI",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/775b0443-9982-4e4c-9351-3e0f861aee60/Screenshot%202026-01-28%20162906.png"
+  },
+  {
+    "slug": "signals",
+    "name": "Signals",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/b0b0240e-3489-4323-902a-2cf960e21b46/Screenshot%202026-01-28%20163333.png"
+  },
+  {
+    "slug": "tradoc",
+    "name": "TRADOC",
+    "category": "formation",
+    "status": "todo",
+    "widthMm": 70,
+    "sizeVerified": false,
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/367e7819-f0af-4f54-a880-93a5a6d1dad2/Screenshot%202026-01-28%20162952.png"
+  }
+]

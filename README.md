@@ -1,0 +1,60 @@
+# Uniform Visualiser
+
+Shows how to place badges on a Singapore Army uniform. Web first (Vite + React + TypeScript), mobile later (Capacitor).
+
+## Set up on Windows
+
+1. Install **Node.js 22 LTS** (https://nodejs.org) and **Git for Windows** (https://git-scm.com/downloads/win).
+2. Open this folder in **Cursor** (File > Open Folder).
+3. In Cursor's terminal (Ctrl+`):
+   ```
+   npm install
+   npm run dev
+   ```
+   Open the address it prints (usually http://localhost:5173).
+
+## Use Claude Code in Cursor
+
+1. Install Claude Code. In PowerShell:
+   ```
+   irm https://claude.ai/install.ps1 | iex
+   ```
+   (or `winget install Anthropic.ClaudeCode`). Open a new terminal and check with `claude --version`.
+2. In Cursor's terminal, from this folder, run `claude` and log in when asked.
+3. Optional: install the Claude Code extension in Cursor (search "Claude Code" in Extensions) for inline diffs.
+
+Claude Code reads `CLAUDE.md` automatically, and Cursor reads `.cursor/rules/project.mdc`, which points to it.
+Install steps are from https://code.claude.com/docs/en/overview, so check there if anything has changed.
+
+### Good first prompts
+
+- "Add drag and snap so I can move a placed badge between the spots its category allows. Add tests for any new rules."
+- "Add a quiz mode: show a badge name, I tap where it goes, tell me if it is right."
+- "Add a uniform picker and set up Number 3 using `docs/ADDING_BADGES.md`."
+- "Set up Capacitor for Android following `docs/PLAN.md`."
+
+## Commands
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server |
+| `npm run build` | Typecheck and production build |
+| `npm test` | Unit tests |
+| `npm run data:validate` | Check all data files and badge art |
+| `npm run data:sync` | Same, and mark badges `redrawn` when their PNG exists |
+| `npm run refs:fetch` | Download official reference photos (needs Python) |
+| `python scripts/process_badge.py <img> <category> <slug>` | Make a generated badge transparent, crop and resize to 512 px (needs `pip install pillow numpy`) |
+
+## Where things are
+
+- `docs/PLAN.md` roadmap and open questions
+- `docs/STYLE.md` art style, palette and the image-model prompt
+- `docs/ADDING_BADGES.md` adding badges, categories and uniforms
+- `src/data/` all content (JSON) and the schema
+- `src/lib/placement.ts` placement rules and layout
+- `public/badges/<category>/<slug>.png` redrawn badge art (proficiency badges so far)
+
+## Status
+
+75 badges catalogued; the 3 proficiency badges have draft art, the rest show placeholder tiles. Anchor positions and badge sizes are
+approximate and marked unverified. Badge info is from https://www.army.gov.sg/our-forces/badges/.

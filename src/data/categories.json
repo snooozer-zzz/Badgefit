@@ -1,0 +1,74 @@
+[
+  {
+    "id": "arms",
+    "name": "Arms Badge",
+    "order": 1,
+    "wornOn": "Right shirt collar",
+    "description": "Reflects the Arms the serviceman is from.",
+    "maxWorn": null,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "exceptional-skills",
+    "name": "Exceptional Skills Badges",
+    "order": 2,
+    "wornOn": "Left chest, above the pocket",
+    "description": "Takes precedence over all Skills Badges.",
+    "maxWorn": null,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "skills",
+    "name": "Skills Badges",
+    "order": 3,
+    "wornOn": "Left chest, above the pocket",
+    "description": "Awarded for a professional skill or specialised training.",
+    "maxWorn": null,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "skill-tabs",
+    "name": "Skills Tabs",
+    "order": 4,
+    "wornOn": "Left sleeve",
+    "description": "Maximum of 2 worn at once.",
+    "maxWorn": 2,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "proficiency",
+    "name": "Proficiency Badges",
+    "order": 5,
+    "wornOn": "Left shoulder sleeve",
+    "description": "Awarded for basic soldiering or physical proficiency. Not more than two can be worn at any one time.",
+    "maxWorn": 2,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "incentive",
+    "name": "Incentive Badges",
+    "order": 6,
+    "wornOn": "Flap of the left breast pocket",
+    "description": "Awarded for good job performance and services rendered.",
+    "maxWorn": null,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "identification",
+    "name": "Identification Badge",
+    "order": 7,
+    "wornOn": "Right side of the uniform, in addition to foreign badges",
+    "description": "Identification badge.",
+    "maxWorn": null,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "formation",
+    "name": "Formation Badges",
+    "order": 8,
+    "wornOn": null,
+    "description": "Represents the specific Arms or branch of service a soldier belongs to. The source page does not say where these are worn.",
+    "maxWorn": null,
+    "source": "https://www.army.gov.sg/our-forces/badges/"
+  }
+]

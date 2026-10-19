@@ -1,0 +1,69 @@
+{
+  "id": "number-1",
+  "name": "Number 1 (white tunic)",
+  "image": "uniforms/number-1.png",
+  "width": 741,
+  "height": 680,
+  "pxPerMm": 1.0,
+  "anchors": [
+    {
+      "id": "right-collar",
+      "label": "Right collar",
+      "x": 326,
+      "y": 64,
+      "accepts": ["arms"],
+      "layout": { "direction": "horizontal", "gapPx": 6 },
+      "verified": false,
+      "note": "Position approximate. The source page only says 'right shirt collar'."
+    },
+    {
+      "id": "left-chest-above-pocket",
+      "label": "Left chest, above pocket",
+      "x": 482,
+      "y": 172,
+      "accepts": ["exceptional-skills", "skills"],
+      "layout": { "direction": "horizontal", "gapPx": 8 },
+      "verified": false,
+      "note": "Exceptional skills badges take precedence over skills badges (laid out first)."
+    },
+    {
+      "id": "left-pocket-flap",
+      "label": "Left pocket flap",
+      "x": 482,
+      "y": 232,
+      "accepts": ["incentive"],
+      "layout": { "direction": "horizontal", "gapPx": 6 },
+      "verified": false
+    },
+    {
+      "id": "right-side-id",
+      "label": "Right side",
+      "x": 250,
+      "y": 172,
+      "accepts": ["identification"],
+      "layout": { "direction": "horizontal", "gapPx": 6 },
+      "verified": false,
+      "note": "Source says 'right side of the uniform'. Exact spot unknown."
+    },
+    {
+      "id": "left-shoulder-sleeve",
+      "label": "Left shoulder sleeve",
+      "x": 618,
+      "y": 190,
+      "accepts": ["proficiency"],
+      "layout": { "direction": "vertical", "gapPx": 8 },
+      "verified": false,
+      "note": "Not more than two proficiency badges at any one time."
+    },
+    {
+      "id": "left-sleeve-tabs",
+      "label": "Left sleeve (tabs)",
+      "x": 628,
+      "y": 330,
+      "accepts": ["skill-tabs"],
+      "layout": { "direction": "vertical", "gapPx": 8 },
+      "verified": false,
+      "note": "Maximum of two tabs at once."
+    }
+  ]
+}

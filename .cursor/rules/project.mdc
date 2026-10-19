@@ -1,0 +1,16 @@
+---
+description: Uniform Visualiser project rules
+alwaysApply: true
+---
+
+Read `CLAUDE.md` at the repo root first. It is the source of truth for commands, layout and conventions,
+and applies to Cursor as well as Claude Code.
+
+Short version:
+
+- Content lives in `src/data/*.json`, validated by `src/data/schema.ts`. Never hard-code badges, anchors or rules in components.
+- Placement rules live in `src/lib/placement.ts` and need a test in `placement.test.ts`.
+- Do not invent regulations. If a position, size or limit is not stated by a source, keep `verified: false`.
+- Badge art path is `public/badges/<category>/<slug>.png`; match `docs/STYLE.md`.
+- Use `assetUrl()` for files in `public/` so the app works inside Capacitor.
+- Before finishing: `npm run typecheck && npm test && npm run data:validate`.

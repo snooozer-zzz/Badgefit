@@ -1,0 +1,75 @@
+Arms Badge|Armour|6a806805-09cb-42e7-939d-b7316abf73a9/armour.png
+Arms Badge|Artillery|df313eda-f8f9-4177-9acf-849838c08995/artillery.png
+Arms Badge|Commando|b6ebcd93-1dd1-436c-b5e4-5bf4ae261300/commando.png
+Arms Badge|Engineer|dffff85c-e672-4b8b-89ba-0b8cd7ff7508/engineer.png
+Arms Badge|Guards|697974c5-8cd7-451c-ab1c-0ba5f8e056fc/guards-1.png
+Arms Badge|Infantry|1a93cad5-eaf5-42e6-8c45-6f5227732277/infantry.png
+Arms Badge|Intelligence|6026342f-3810-4283-9597-8083a0abccb3/intelligence-1.png
+Arms Badge|Logistics|9ebe99b1-67eb-4e73-9159-d90daa585c5d/logistics-1.png
+Arms Badge|Manpower|2f0e06ac-d2c3-44b1-af95-903705a61504/manpower-1.png
+Arms Badge|Medical|067cf049-5bfb-49f7-b76c-6598e7686f72/medical.png
+Arms Badge|Military Police|51ff8beb-650d-418a-bf9c-7e889d8136ef/military-police-1.png
+Arms Badge|Signal|4c16e0b9-d239-4c2f-8666-3e1262596d24/signal.png
+Exceptional Skills Badges|Gold Military Free Fall Parachutist Highest Order|c9476234-198e-4ec7-9832-47ae92a46efe/gold-military-free-fall-parachutist.png
+Exceptional Skills Badges|Advanced Military Free Fall Parachutist Second Order|6f4654d9-da39-4083-a870-9811a7c90a3d/advance-military-free-fall-parachutist.png
+Exceptional Skills Badges|Basic Military Free Fall Parachutist Third Order|7975bb55-48b5-483a-b0e4-1420da89a5af/basic-military-free-fall-parachutist.png
+Exceptional Skills Badges|Master Parachutist Highest Order|a8ba7925-2708-4f84-a6b5-3a0541ecf01b/master-parachutist.png
+Exceptional Skills Badges|Senior Parachutist Second Order|83f21cc8-002f-4ee1-8f64-8cd64cc7c44d/senior-parachutist.png
+Skills Badges|Basic Parachutist|5a66ca7f-6017-43ce-a33d-b707265539f0/basic-parachutist.png
+Skills Badges|Basic Chemical Biological Radiological Disposal|d5cb15e1-e3c4-4cb8-84f7-ac2004db3ea3/basic-chemical-biological-radiological-disposal.png
+Skills Badges|Advanced Chemical Biological Radiological Defence|ec9805d5-9b32-43f7-ae13-340f590be1ab/advanced-chemical-biological-radiological-defence.png
+Skills Badges|Jungle Confidence Course|cc881c3a-996f-44be-9cd3-155051eff21f/jungle-confidence-course.png
+Skills Badges|Advanced Jungle Confidence Course|c0dd711e-3bad-40d5-be1d-e40d8c9fbdfb/advanced-jungle-confidence-course.png
+Skills Badges|Master Jungle Confidence Course|4d4ed881-c425-4c07-992f-75ca4a9c22d1/master-jungle-confidence-course.png
+Skills Badges|Combat Skills|034b4ef0-4af1-4a8e-a08f-cd8a6d544600/combat-skills.png
+Skills Badges|Advanced Combat Skills|641771c4-b1a8-4e29-9de5-8e00e0652993/advanced-combat-skills.png
+Skills Badges|Master Combat Skills|0ae54c8d-6352-42b2-b8db-bd634376ea9f/master-combat-skills.png
+Skills Badges|Basic Explosive Ordnance Disposal|1e7c1a79-03ec-404c-8cc4-81b5c8253ca7/basic-explosive-ordnance-disposal.png
+Skills Badges|Advanced Explosive Ordnance Disposal|9201e3c3-01e9-4b9d-8bce-eac4cd94c152/advanced-explosive-ordnance-disposal.png
+Skills Badges|Senior Explosive Ordnance Disposal|bd852969-faf6-42ad-9fda-fbae6d9ae551/senior-explosive-ordnance-disposal.png
+Skills Badges|Sniper Basic|f6845fdc-717a-4355-bbc9-97b534183ebd/sniper-basic.png
+Skills Badges|Sniper Advanced|e1ce6f00-9b87-4e80-a470-225e62042e45/sniper-advanced.png
+Skills Badges|Sniper Master|77a7dac6-946b-41ff-85ba-287a88f99cf1/sniper-master.png
+Skills Badges|Rigger|c33db883-5a57-4f55-b666-70de2066c4f0/rigger.png
+Skills Badges|Ammo Basic|73ecf945-fda6-4f86-b513-d14a1d61f542/ammo-basic.png
+Skills Badges|Ammo Advanced|7ca38c2e-5c89-4623-b058-ef1a07040edc/ammo-advanced.png
+Skills Badges|Combat Fitness Trainer Basic|ad5e3861-36a1-4b4a-831c-1cd407d26550/combat-fitness-trainer-basic.png
+Skills Badges|Combat Fitness Trainer Advanced|bfe66599-22d0-4709-a322-bd9a97f216ca/combat-fitness-trainer-advanced.png
+Skills Badges|Combat Fitness Trainer Master|c99497be-c97c-428d-8408-91fb697e4b6d/combat-fitness-trainer-master.png
+Skills Badges|Silent Precision Drill|1ab8f24a-b76a-4db3-aafd-6616c60f994c/silent-precision-drill.png
+Skills Badges|Musician|7f711a38-d145-4fe6-a27e-5249a6ed5d6a/musician.png
+Skills Badges|Director of Music|4c081675-09a7-4198-af9e-72e635c4028d/director-of-music.png
+Skills Badges|Paramedic|670c4398-054b-43f4-af45-5bd850d5e376/paramedics.png
+Skills Badges|Taekwondo Black Belt|c172a8d6-bd90-4370-8764-2613690f9735/taekwondo-black-belt.png
+Skills Tabs|Guards Tab|dccf42c2-ff49-4bdd-a108-1653d4927b0a/guards-tab.png
+Skills Tabs|Ranger Tab|42fbdcd7-dfd5-406d-a6c3-1658a07dd436/ranger-tab.png
+Skills Tabs|Reconnaissance (RECON) Tab|6a5eeeae-d89d-40db-813d-dd4687cb345c/reconnaissance-recon-tab.png
+Proficiency Badges|IPPT Gold|7b5144ac-cee7-4582-84f1-10fb19a18b65/ippt-gold.png
+Proficiency Badges|IPPT Silver|dc4ad405-fe92-41de-a389-29270fae1a6a/ippt-silver.png
+Proficiency Badges|Marksmanship|63f56554-ff71-4d78-9213-ac2469f4f34e/marksmanship.png
+Incentive Badges|Safe and Courteous Driver|9c3087df-934f-42c3-bcfc-26443b70fadb/safe-and-courteous-driver.png
+Identification Badge|Para Counsellor|48f9dca6-6a41-4685-8389-3071c713b864/para-counsellor.png
+Formation Badges|3 DIV|77732fdc-d926-4bed-9db7-20645c03886a/Screenshot%202026-01-28%20162017.jpg
+Formation Badges|6 DIV|db810717-22d6-4538-ba5a-879e663bb193/Screenshot%202026-01-28%20161945.jpg
+Formation Badges|9 DIV|ddf2b71a-aee6-43cc-8800-046314e90d1a/Screenshot%202026-01-28%20163205.png
+Formation Badges|2 PDF|33bed367-1446-46e0-8b5d-82696e698ab9/IMG_1968.jpeg
+Formation Badges|Ammo|80e801b5-cf38-421e-968f-026803f31288/Screenshot%202026-01-28%20162315.png
+Formation Badges|Artillery|85fdd10e-9c13-4a4e-bbaf-b69367464127/Screenshot%202026-01-28%20161859-3.jpg
+Formation Badges|Armour|2216dae0-923b-40ab-b861-d013449974ba/Screenshot%202026-01-28%20162236.png
+Formation Badges|Army HR|1a855c08-d62e-4c34-9618-fdb0edd76282/Screenshot%202026-01-28%20163122.png
+Formation Badges|Army Intelligence|62bd0fe6-708d-435c-95f3-05abbf312b30/Army%20Intel.png
+Formation Badges|Army Medical Service|53d45540-e611-47f2-9f6a-403f17fcba78/Screenshot%202026-01-28%20162718.png
+Formation Badges|Commando|2cc6961b-d68c-4882-bbb9-d1e2358aca9d/Screenshot%202026-01-28%20163358.png
+Formation Badges|CSSCOM|30dbf446-ec89-4dda-93b5-45a44ba49032/Screenshot%202026-01-28%20162154.jpg
+Formation Badges|Engineer|933ba1a0-86ca-4da8-ba9e-99982a49e7cc/Screenshot%202026-01-28%20162824.png
+Formation Badges|General Staff|0c0d18fc-1ab3-4342-acc2-e16500174ba2/Screenshot%202026-01-28%20163232.png
+Formation Badges|Guards|8ceed6ae-e725-49e2-98bf-390c4382cdc2/Screenshot%202026-01-28%20162753.jpg
+Formation Badges|HQ Supply and Transport|ac069ec2-578b-4ddd-8729-70fc754eeb5f/Screenshot%202026-01-28%20162528.png
+Formation Badges|Joint Formation|ac643330-8927-463b-8682-069c7f9ac637/Screenshot%202026-01-28%20163438.png
+Formation Badges|Maintenance|be0eb918-3c86-4f5d-8843-a87caf9d81b9/Screenshot%202026-01-28%20162428-2.jpg
+Formation Badges|Medical Corps|10311fca-a6fe-41d9-a33c-c4170a696423/Screenshot%202026-01-28%20162402-3.jpg
+Formation Badges|MINDEF|978a61f5-8122-4f25-8e86-66dd08a156fd/Screenshot%202026-01-28%20161721-2.jpg
+Formation Badges|Military Police|e6c33576-e64b-4df9-8a33-50719c5b7273/Screenshot%202026-01-28%20162500.png
+Formation Badges|SAFTI MI|775b0443-9982-4e4c-9351-3e0f861aee60/Screenshot%202026-01-28%20162906.png
+Formation Badges|Signals|b0b0240e-3489-4323-902a-2cf960e21b46/Screenshot%202026-01-28%20163333.png
+Formation Badges|TRADOC|367e7819-f0af-4f54-a880-93a5a6d1dad2/Screenshot%202026-01-28%20162952.png
