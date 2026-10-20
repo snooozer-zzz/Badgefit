@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "id": "army",
+      "name": "Army"
+    },
+    {
+      "id": "rsaf",
+      "name": "RSAF"
+    },
+    {
+      "id": "rsn",
+      "name": "RSN"
+    }
+  ],
+  "genders": [
+    {
+      "id": "male",
+      "name": "Male"
+    },
+    {
+      "id": "female",
+      "name": "Female"
+    }
+  ],
+  "dresses": [
+    {
+      "id": "number-1",
+      "name": "No. 1"
+    },
+    {
+      "id": "number-3",
+      "name": "No. 3"
+    },
+    {
+      "id": "number-5",
+      "name": "No. 5"
+    }
+  ],
+  "rank": {
+    "categories": [
+      "rank-insignia",
+      "shoulder-boards"
+    ],
+    "replacesBranch": [
+      "gorgets"
+    ]
+  },
+  "branch": {
+    "category": "arms"
+  }
+}

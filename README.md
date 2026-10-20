@@ -42,19 +42,18 @@ Install steps are from https://code.claude.com/docs/en/overview, so check there 
 | `npm test` | Unit tests |
 | `npm run data:validate` | Check all data files and badge art |
 | `npm run data:sync` | Same, and mark badges `redrawn` when their PNG exists |
-| `npm run refs:fetch` | Download official reference photos (needs Python) |
-| `python scripts/process_badge.py <img> <category> <slug>` | Make a generated badge transparent, crop and resize to 512 px (needs `pip install pillow numpy`) |
+| `npm run art:import -- <bundle folder>` | Bring in finished badge art from the `badge-art-pipeline` project (`docs/ART.md`) |
 
 ## Where things are
 
 - `docs/PLAN.md` roadmap and open questions
-- `docs/STYLE.md` art style, palette and the image-model prompt
+- `docs/ART.md` how badge art is made (separate `badge-art-pipeline` program) and imported
 - `docs/ADDING_BADGES.md` adding badges, categories and uniforms
 - `src/data/` all content (JSON) and the schema
 - `src/lib/placement.ts` placement rules and layout
-- `public/badges/<category>/<slug>.png` redrawn badge art (proficiency badges so far)
+- `public/badges/<category>/<slug>.png` badge art (proficiency badges, and the imported shoulder boards, rank insignia and gorgets)
 
 ## Status
 
-75 badges catalogued; the 3 proficiency badges have draft art, the rest show placeholder tiles. Anchor positions and badge sizes are
+115 badges catalogued: the 3 proficiency badges and the 40 No.1 accessories (shoulder boards, rank insignia, gorgets) have art; the other 72 show placeholder tiles. Anchor positions and badge sizes are
 approximate and marked unverified. Badge info is from https://www.army.gov.sg/our-forces/badges/.

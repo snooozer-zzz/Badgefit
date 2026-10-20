@@ -28,22 +28,30 @@ export function BadgeImage({ badge }: { badge: Badge }) {
   );
 }
 
-/** Same thing, but as an SVG <image> so it can sit on the uniform. */
+/**
+ * Same thing, but as an SVG <image> so it can sit on the uniform. The art is a square PNG: in a square
+ * box it is shown whole, in a taller, narrower box (medals) only the middle strip, from the top, is shown.
+ */
 export function BadgeOnUniform({
   badge,
+  artPath,
   x,
   y,
-  size,
+  width,
+  height,
 }: {
   badge: Badge;
+  /** The art file under public/, from resolveBadgeArt (shared art unless the service or uniform has its own). */
+  artPath: string;
   x: number;
   y: number;
-  size: number;
+  width: number;
+  height: number;
 }) {
   const [failed, setFailed] = useState(false);
   if (badge.status === 'todo' || failed) {
     return (
-      <svg x={x} y={y} width={size} height={size} viewBox="0 0 100 100">
+      <svg x={x} y={y} width={width} height={height} viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="46" fill="#2a2f35" stroke="#e2c045" strokeWidth="5" />
         <text x="50" y="60" textAnchor="middle" fontSize="30" fontWeight="700" fill="#f1e3a6">
           {initials(badge.name)}
@@ -53,12 +61,12 @@ export function BadgeOnUniform({
   }
   return (
     <image
-      href={assetUrl(badgeArtPath(badge))}
+      href={assetUrl(artPath)}
       x={x}
       y={y}
-      width={size}
-      height={size}
-      preserveAspectRatio="xMidYMid meet"
+      width={width}
+      height={height}
+      preserveAspectRatio="xMidYMin slice"
       onError={() => setFailed(true)}
     />
   );

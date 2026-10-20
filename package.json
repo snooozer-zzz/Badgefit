@@ -11,7 +11,7 @@
     "test": "vitest run",
     "data:validate": "tsx scripts/validate-data.ts",
     "data:sync": "tsx scripts/validate-data.ts --fix",
-    "refs:fetch": "python scripts/fetch_references.py"
+    "art:import": "tsx scripts/import-art.ts"
   },
   "dependencies": {
     "react": "^19.3.1",

@@ -6,43 +6,48 @@
     "wornOn": "Right shirt collar",
     "description": "Reflects the Arms the serviceman is from.",
     "maxWorn": null,
+    "selectable": false,
     "source": "https://www.army.gov.sg/our-forces/badges/"
   },
   {
     "id": "exceptional-skills",
     "name": "Exceptional Skills Badges",
     "order": 2,
-    "wornOn": "Left chest, above the pocket",
+    "wornOn": "Left chest, centred, 1 cm above the left pocket flap (or above the medals)",
     "description": "Takes precedence over all Skills Badges.",
     "maxWorn": null,
-    "source": "https://www.army.gov.sg/our-forces/badges/"
+    "selectable": true,
+    "source": "https://www.army.gov.sg/our-forces/badges/ ; SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15 (maximum 3 SAF badges in total, shared with the other chest SAF badges)"
   },
   {
     "id": "skills",
     "name": "Skills Badges",
     "order": 3,
-    "wornOn": "Left chest, above the pocket",
+    "wornOn": "Left chest, centred, 1 cm above the left pocket flap (or above the medals)",
     "description": "Awarded for a professional skill or specialised training.",
     "maxWorn": null,
-    "source": "https://www.army.gov.sg/our-forces/badges/"
+    "selectable": true,
+    "source": "https://www.army.gov.sg/our-forces/badges/ ; SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15 (maximum 3 SAF badges in total, shared with the other chest SAF badges)"
   },
   {
     "id": "skill-tabs",
     "name": "Skills Tabs",
     "order": 4,
-    "wornOn": "Left sleeve",
-    "description": "Maximum of 2 worn at once.",
+    "wornOn": "Left sleeve, centred on the shoulder board, 1 cm below the shoulder seam",
+    "description": "Maximum of 2 worn at once. The second tab is worn immediately before the first.",
     "maxWorn": 2,
-    "source": "https://www.army.gov.sg/our-forces/badges/"
+    "selectable": true,
+    "source": "https://www.army.gov.sg/our-forces/badges/ ; SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15"
   },
   {
     "id": "proficiency",
     "name": "Proficiency Badges",
     "order": 5,
-    "wornOn": "Left shoulder sleeve",
-    "description": "Awarded for basic soldiering or physical proficiency. Not more than two can be worn at any one time.",
+    "wornOn": "Left shoulder sleeve, centred on the shoulder board, base of the lower badge 15 cm down from the shoulder seam",
+    "description": "Awarded for basic soldiering or physical proficiency. Not more than two can be worn at any one time. IPPT is worn below the marksmanship badge. Only one marksmanship badge is worn.",
     "maxWorn": 2,
-    "source": "https://www.army.gov.sg/our-forces/badges/"
+    "selectable": true,
+    "source": "https://www.army.gov.sg/our-forces/badges/ ; SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15"
   },
   {
     "id": "incentive",
@@ -51,6 +56,7 @@
     "wornOn": "Flap of the left breast pocket",
     "description": "Awarded for good job performance and services rendered.",
     "maxWorn": null,
+    "selectable": true,
     "source": "https://www.army.gov.sg/our-forces/badges/"
   },
   {
@@ -60,6 +66,7 @@
     "wornOn": "Right side of the uniform, in addition to foreign badges",
     "description": "Identification badge.",
     "maxWorn": null,
+    "selectable": true,
     "source": "https://www.army.gov.sg/our-forces/badges/"
   },
   {
@@ -69,6 +76,77 @@
     "wornOn": null,
     "description": "Represents the specific Arms or branch of service a soldier belongs to. The source page does not say where these are worn.",
     "maxWorn": null,
+    "selectable": false,
     "source": "https://www.army.gov.sg/our-forces/badges/"
+  },
+  {
+    "id": "shoulder-boards",
+    "name": "Shoulder Boards",
+    "order": 9,
+    "wornOn": "Both shoulders, button at the collar end",
+    "description": "Officers, warrant officers and military experts wear their rank here. Specialists and enlistees wear the plain board and their rank on the right sleeve.",
+    "maxWorn": 1,
+    "selectable": false,
+    "source": "SAF dress guideline (No.1 dress) and the No.1 accessories catalogue (project files)"
+  },
+  {
+    "id": "rank-insignia",
+    "name": "Rank Insignia",
+    "order": 10,
+    "wornOn": "Right sleeve, lowest point of the chevron 24 cm from the shoulder seam, centre in line with the centre of the shoulder board",
+    "description": "Ceremonial rank insignia of specialists (3SG to MSG) and enlistees (PFC to CFC), worn with the plain shoulder board.",
+    "maxWorn": 1,
+    "selectable": false,
+    "source": "SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.8; SAF dress guideline and the No.1 accessories catalogue (project files)"
+  },
+  {
+    "id": "gorgets",
+    "name": "Gorgets",
+    "order": 11,
+    "wornOn": "Both sides of the collar, 0.5 cm from the front edge",
+    "description": "Worn by COL and above in place of vocation collar badges.",
+    "maxWorn": 1,
+    "selectable": false,
+    "source": "SAF dress guideline (No.1 dress) and the No.1 accessories catalogue (project files)"
+  },
+  {
+    "id": "medals",
+    "name": "Medals",
+    "order": 12,
+    "wornOn": "Left chest, centred, the top of the medals 6 cm above the top edge of the left pocket flap",
+    "description": "SAF service medals, full-size, worn on Army No.1 dress with the front face showing. The PDF gives no order of wear, so they are shown in the order they were picked.",
+    "maxWorn": null,
+    "selectable": true,
+    "source": "SAF No.1 Dress PDF (March 2024), p.14; the medal list is from https://www.navy.gov.sg/our-forces/medals/ (temporary)"
+  },
+  {
+    "id": "foreign-badges",
+    "name": "Foreign Badges",
+    "order": 13,
+    "wornOn": "Right chest, centred, 1 cm above the top edge of the right pocket flap or in line with the SAF badges (if worn), whichever is higher",
+    "description": "Badges from other countries. Maximum of 3 on the right chest.",
+    "maxWorn": 3,
+    "selectable": true,
+    "source": "SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15"
+  },
+  {
+    "id": "foreign-sleeve-tabs",
+    "name": "Foreign Tabs (right sleeve)",
+    "order": 14,
+    "wornOn": "Right shoulder sleeve, worn the same way as SAF tabs on the left sleeve",
+    "description": "Foreign tabs. Maximum of 2 on the right sleeve.",
+    "maxWorn": 2,
+    "selectable": true,
+    "source": "SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15"
+  },
+  {
+    "id": "foreign-sleeve-badges",
+    "name": "Foreign Badges (right sleeve)",
+    "order": 15,
+    "wornOn": "Right shoulder sleeve, worn the same way as SAF badges on the left sleeve",
+    "description": "Foreign badges. Maximum of 2 on the right sleeve.",
+    "maxWorn": 2,
+    "selectable": true,
+    "source": "SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15"
   }
 ]
