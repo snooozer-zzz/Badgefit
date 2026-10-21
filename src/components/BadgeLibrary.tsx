@@ -1,3 +1,4 @@
+// The badge library: category tabs, a search box and a grid of badge tiles to place on the uniform.
 import { useMemo, useState } from 'react';
 import type { Badge, Category } from '../data/schema';
 import { badgeKey } from '../lib/placement';
@@ -12,6 +13,7 @@ interface Props {
   onHint: (badge: Badge | null) => void;
 }
 
+/** The library panel. `placedKeys` marks tiles already on the uniform; `onPlace` is called when a tile is clicked. */
 export function BadgeLibrary({ categories, badges, placedKeys, onPlace, onHint }: Props) {
   const sorted = useMemo(() => [...categories].sort((a, b) => a.order - b.order), [categories]);
   const [categoryId, setCategoryId] = useState<string>(sorted[0].id);

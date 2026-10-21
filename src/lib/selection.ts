@@ -1,5 +1,7 @@
+// The selection screen's logic: what the user picks (service, gender, dress, rank, branch), the dropdown
+// lines for each pick, and the badges that the pick makes the uniform wear (the loadout).
 import type { Badge, Category, Options, Uniform } from '../data/schema';
-import { badgeKey, placeBadge } from './placement';
+import { placeBadge } from './placement';
 
 /** What the user picks on the selection screen. null = not picked yet. */
 export interface Selection {
@@ -44,8 +46,9 @@ export function uniformFor(
   return uniforms.find((u) => u.dress === dress && u.services.includes(service) && u.genders.includes(gender)) ?? null;
 }
 
-/** Services and genders as dropdown lines. */
+/** Services as dropdown lines. */
 export const serviceOptions = (options: Options): Option[] => options.services.map((s) => ({ id: s.id, label: s.name }));
+/** Genders as dropdown lines. */
 export const genderOptions = (options: Options): Option[] => options.genders.map((g) => ({ id: g.id, label: g.name }));
 
 /** Every dress, disabled when it is not drawn for this service and gender (or they are not picked yet). */
@@ -142,10 +145,11 @@ export function loadoutFor(
     if (replacing) notes.push(`The ${replacing.name} gorget is worn in place of the ${branch.name} badge.`);
     else candidates.push(branch);
   }
-  return place(uniform, candidates, categories, notes);
+  return placeAll(uniform, candidates, categories, notes);
 }
 
-function place(uniform: Uniform, candidates: Badge[], categories: Category[], notes: string[]): Loadout {
+/** Places each candidate in turn. What the placement rules refuse is left out and explained in `notes`. */
+function placeAll(uniform: Uniform, candidates: Badge[], categories: Category[], notes: string[]): Loadout {
   let placed: Badge[] = [];
   for (const badge of candidates) {
     const r = placeBadge(uniform, badge, placed, categories);
@@ -154,9 +158,6 @@ function place(uniform: Uniform, candidates: Badge[], categories: Category[], no
   }
   return { badges: placed, notes };
 }
-
-/** The keys of the badges that belong to the selection (they cannot be removed on the uniform). */
-export const loadoutKeys = (loadout: Loadout): Set<string> => new Set(loadout.badges.map(badgeKey));
 
 /** One line for the top bar: "Army · Male · No. 1 · 2LT Second Lieutenant · Infantry". */
 export function describeSelection(sel: Selection, badges: Badge[], options: Options): string {

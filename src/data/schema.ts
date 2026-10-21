@@ -1,3 +1,5 @@
+// The shape of every JSON data file (zod schemas), and the TypeScript types made from them.
+// Add a field here first; data/index.ts and npm run data:validate then check the files against it.
 import { z } from 'zod';
 
 /** Where a group of badges is worn, plus the rules the source page states for it. */
@@ -25,17 +27,19 @@ export const CategorySchema = z.object({
  * redrawn  = art exists in public/badges/<category>/<slug>.png
  * verified = art AND size/placement checked against the dress regulations
  */
-export const BadgeStatusSchema = z.enum(['todo', 'redrawn', 'verified']);
+const BadgeStatusSchema = z.enum(['todo', 'redrawn', 'verified']);
 
-/** Art for one service and/or one uniform. With neither set it would be the shared art, so one is required. */
-export const ArtVariantSchema = z
+/** Art for one service, one dress and/or one uniform. With none of them it would be the shared art, so one is required. */
+const ArtVariantSchema = z
   .object({
     service: z.string().min(1).optional(),
+    /** A dress id from options.json (e.g. "number-2"): every uniform of that dress. */
+    dress: z.string().min(1).optional(),
     uniform: z.string().min(1).optional(),
     /** Path under public/. */
     path: z.string().min(1),
   })
-  .refine((v) => v.service !== undefined || v.uniform !== undefined, 'an art variant needs a service or a uniform');
+  .refine((v) => v.service !== undefined || v.dress !== undefined || v.uniform !== undefined, 'an art variant needs a service, a dress or a uniform');
 
 export const BadgeSchema = z.object({
   /** Unique within its category. Also the art file name. */
@@ -50,6 +54,11 @@ export const BadgeSchema = z.object({
    * medals is a square PNG with empty sides: a narrow, tall box shows only the middle strip of it.
    */
   heightMm: z.number().positive().optional(),
+  /**
+   * Medals only: the part of the art that is the ribbon, in pixels of the 512 px square PNG. An anchor with
+   * render "ribbon" draws just this rectangle (a ribbon bar). Leave out to use the default band (see lib/ribbon.ts).
+   */
+  ribbon: z.object({ x: z.number(), y: z.number(), width: z.number().positive(), height: z.number().positive() }).optional(),
   sizeVerified: z.boolean(),
   /** Official photo used as the reference when redrawing. Never shipped in the app. */
   referenceUrl: z.string().optional(),
@@ -69,7 +78,7 @@ export const BadgeSchema = z.object({
   artVariants: z.array(ArtVariantSchema).optional(),
 });
 
-export const AnchorSchema = z.object({
+const AnchorSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(1),
   /** Centre of the spot, in uniform image pixels. */
@@ -114,8 +123,25 @@ export const AnchorSchema = z.object({
    * below it (3 SAF badges over medals must stay below the shoulder board). Set it from the uniform art.
    */
   minY: z.number().optional(),
-  /** Multiplies the size of the badges at this spot. Leave out for 1. For flat art standing in for a mounted sprite. */
+  /**
+   * Multiplies the size (width and height) of every badge at this spot, and so the rows and gaps built from them.
+   * Leave out for 1. For flat art standing in for a mounted sprite, or miniatures (medals on a mess dress lapel).
+   */
   scale: z.number().positive().optional(),
+  /** Extra scale for single badges, by badge key ("proficiency/marksmanship"), on top of `scale`. Leave out for 1. */
+  itemScales: z.record(z.string(), z.number().positive()).optional(),
+  /**
+   * 'ribbon' (medals only): draw just the ribbon of each medal, cut out of its art, in a small box (`ribbon`), side
+   * by side with no gap, `perRow` to a row and extra rows stacked upward. The anchor's y is the bottom edge of the
+   * first row. Leave out (or 'art') to draw the whole art of each badge.
+   */
+  render: z.enum(['art', 'ribbon']).optional(),
+  /** Ribbon mode: the box of one ribbon in millimetres and how many sit in a row (default 3). */
+  ribbon: z
+    .object({ widthMm: z.number().positive(), heightMm: z.number().positive(), perRow: z.number().int().positive().optional() })
+    .optional(),
+  /** true = draw the flat art here even if the uniform has perspective sprites for the badge (a pin on a lapel, not the sleeve). */
+  flat: z.boolean().optional(),
   /** false until the position has been checked against the dress regulations. */
   verified: z.boolean(),
   note: z.string().optional(),
@@ -145,7 +171,7 @@ export const UniformSchema = z.object({
 });
 
 /** One pre-rendered piece of an item as seen on the uniform (perspective already applied). */
-export const MountedSpriteSchema = z.object({
+const MountedSpriteSchema = z.object({
   /** Path under public/. */
   href: z.string().min(1),
   /** Top-left corner and size, in uniform image pixels. */
@@ -164,6 +190,12 @@ export const MountedSchema = z.object({
   uniform: z.string().min(1),
   /** Leave out for sprites every service shares. A file with a service is used for that service only. */
   service: z.string().min(1).optional(),
+  /**
+   * A dress id (options.json). A file with a dress holds only the items that look different on that dress for
+   * that service (today: the sleeve rank in the colours of each service and dress). Its items replace the
+   * same items of the uniform's own file, which supplies the rest. See resolveMounted in lib/art.ts.
+   */
+  dress: z.string().min(1).optional(),
   items: z.record(z.string(), z.array(z.array(MountedSpriteSchema).min(1))),
 });
 
@@ -184,10 +216,7 @@ export const OptionsSchema = z.object({
 
 export type Category = z.infer<typeof CategorySchema>;
 export type Badge = z.infer<typeof BadgeSchema>;
-export type BadgeStatus = z.infer<typeof BadgeStatusSchema>;
 export type Anchor = z.infer<typeof AnchorSchema>;
 export type Uniform = z.infer<typeof UniformSchema>;
-export type MountedSprite = z.infer<typeof MountedSpriteSchema>;
 export type Mounted = z.infer<typeof MountedSchema>;
 export type Options = z.infer<typeof OptionsSchema>;
-export type ArtVariant = z.infer<typeof ArtVariantSchema>;

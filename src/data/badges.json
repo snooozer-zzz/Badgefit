@@ -682,7 +682,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/1a93cad5-eaf5-42e6-8c45-6f5227732277/infantry.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/1a93cad5-eaf5-42e6-8c45-6f5227732277/infantry.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/infantry.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/infantry.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/infantry.png"
+      }
+    ]
   },
   {
     "slug": "military-police",
@@ -692,7 +706,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/51ff8beb-650d-418a-bf9c-7e889d8136ef/military-police-1.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/51ff8beb-650d-418a-bf9c-7e889d8136ef/military-police-1.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/military-police.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/military-police.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/military-police.png"
+      }
+    ]
   },
   {
     "slug": "armour",
@@ -702,7 +730,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6a806805-09cb-42e7-939d-b7316abf73a9/armour.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6a806805-09cb-42e7-939d-b7316abf73a9/armour.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/armour.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/armour.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/armour.png"
+      }
+    ]
   },
   {
     "slug": "intelligence",
@@ -712,7 +754,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6026342f-3810-4283-9597-8083a0abccb3/intelligence-1.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/6026342f-3810-4283-9597-8083a0abccb3/intelligence-1.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/intelligence.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/intelligence.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/intelligence.png"
+      }
+    ]
   },
   {
     "slug": "logistics",
@@ -722,7 +778,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/9ebe99b1-67eb-4e73-9159-d90daa585c5d/logistics-1.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/9ebe99b1-67eb-4e73-9159-d90daa585c5d/logistics-1.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/logistics.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/logistics.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/logistics.png"
+      }
+    ]
   },
   {
     "slug": "commando",
@@ -732,7 +802,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/b6ebcd93-1dd1-436c-b5e4-5bf4ae261300/commando.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/b6ebcd93-1dd1-436c-b5e4-5bf4ae261300/commando.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/commando.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/commando.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/commando.png"
+      }
+    ]
   },
   {
     "slug": "manpower",
@@ -742,7 +826,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/2f0e06ac-d2c3-44b1-af95-903705a61504/manpower-1.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/2f0e06ac-d2c3-44b1-af95-903705a61504/manpower-1.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/manpower.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/manpower.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/manpower.png"
+      }
+    ]
   },
   {
     "slug": "medical",
@@ -752,7 +850,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/067cf049-5bfb-49f7-b76c-6598e7686f72/medical.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/067cf049-5bfb-49f7-b76c-6598e7686f72/medical.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/medical.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/medical.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/medical.png"
+      }
+    ]
   },
   {
     "slug": "signal",
@@ -762,7 +874,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/4c16e0b9-d239-4c2f-8666-3e1262596d24/signal.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/4c16e0b9-d239-4c2f-8666-3e1262596d24/signal.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/signal.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/signal.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/signal.png"
+      }
+    ]
   },
   {
     "slug": "engineer",
@@ -772,7 +898,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/dffff85c-e672-4b8b-89ba-0b8cd7ff7508/engineer.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/dffff85c-e672-4b8b-89ba-0b8cd7ff7508/engineer.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/engineer.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/engineer.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/engineer.png"
+      }
+    ]
   },
   {
     "slug": "guards",
@@ -782,7 +922,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/697974c5-8cd7-451c-ab1c-0ba5f8e056fc/guards-1.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/697974c5-8cd7-451c-ab1c-0ba5f8e056fc/guards-1.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/guards.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/guards.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/guards.png"
+      }
+    ]
   },
   {
     "slug": "artillery",
@@ -792,7 +946,21 @@
     "widthMm": 30,
     "sizeVerified": false,
     "notes": "Arms badge",
-    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/df313eda-f8f9-4177-9acf-849838c08995/artillery.png"
+    "referenceUrl": "https://isomer-user-content.by.gov.sg/128/df313eda-f8f9-4177-9acf-849838c08995/artillery.png",
+    "artVariants": [
+      {
+        "dress": "number-2",
+        "path": "badges/arms-silver/artillery.png"
+      },
+      {
+        "dress": "number-5",
+        "path": "badges/arms-silver/artillery.png"
+      },
+      {
+        "dress": "number-5j",
+        "path": "badges/arms-silver/artillery.png"
+      }
+    ]
   },
   {
     "slug": "gold-military-free-fall-parachutist",
@@ -852,7 +1020,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "lsgc-10",
@@ -862,7 +1036,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "lsgc-10-clasp-15",
@@ -872,7 +1052,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "lsgc-20",
@@ -882,7 +1068,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "long-service-military",
@@ -892,7 +1084,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "lsgc-20-clasp-30",
@@ -902,7 +1100,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "overseas-service",
@@ -912,7 +1116,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "overseas-service-bronze-star",
@@ -922,7 +1132,13 @@
     "widthMm": 32.3,
     "sizeVerified": false,
     "notes": "Service medal",
-    "heightMm": 88.4
+    "heightMm": 88.4,
+    "ribbon": {
+      "x": 180,
+      "y": 32,
+      "width": 153,
+      "height": 121
+    }
   },
   {
     "slug": "guards-tab",

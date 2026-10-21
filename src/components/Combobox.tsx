@@ -1,3 +1,4 @@
+// A dropdown you can type into, used for every choice on the selection screen.
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { filterOptions, type Option } from '../lib/selection';
 
@@ -41,6 +42,7 @@ export function Combobox({ label, options, value, onChange, placeholder = 'Selec
     if (open && active) listRef.current?.querySelector(`[id="${optionId(active)}"]`)?.scrollIntoView({ block: 'nearest' });
   }, [open, active]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Opens the list, with the chosen option highlighted.
   const openList = () => {
     if (disabled || open) return;
     setQuery('');
@@ -48,17 +50,20 @@ export function Combobox({ label, options, value, onChange, placeholder = 'Selec
     setOpen(true);
   };
 
+  // Closes the list and forgets what was typed.
   const close = () => {
     setOpen(false);
     setQuery('');
   };
 
+  // Chooses an option (a disabled one cannot be chosen).
   const pick = (o: Option) => {
     if (o.disabled) return;
     onChange(o.id);
     close();
   };
 
+  // Moves the highlight down (1) or up (-1) through the enabled options, wrapping round at the ends.
   const move = (step: 1 | -1) => {
     const enabled = shown.filter((o) => !o.disabled);
     if (enabled.length === 0) return;
@@ -66,6 +71,7 @@ export function Combobox({ label, options, value, onChange, placeholder = 'Selec
     setActive(enabled[(at + step + enabled.length) % enabled.length].id);
   };
 
+  // Arrow keys move, Enter picks, Escape closes.
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();

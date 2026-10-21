@@ -1,6 +1,6 @@
 # Uniform Visualiser
 
-Shows how to place badges on a Singapore Army uniform. Web first (Vite + React + TypeScript), mobile later (Capacitor).
+Badgefit is a character-creator-style app that shows where badges, medals and rank insignia go on a Singapore Armed Forces uniform. Pick a service, gender, uniform (No. 1, No. 2, No. 5), rank and branch, then tap badges in the library to place them on the uniform. A placement guide shows the anchor spots and the dress rules (for example the limit of SAF badges on the left chest). Everything is driven by JSON data, so adding a badge or a uniform needs no UI code. Web first (Vite + React + TypeScript), mobile later (Capacitor).
 
 ## Set up on Windows
 
@@ -50,7 +50,7 @@ Install steps are from https://code.claude.com/docs/en/overview, so check there 
 - `docs/ART.md` how badge art is made (separate `badge-art-pipeline` program) and imported
 - `docs/ADDING_BADGES.md` adding badges, categories and uniforms
 - `src/data/` all content (JSON) and the schema
-- `src/lib/placement.ts` placement rules and layout
+- `src/lib/placement.ts` placement rules, `src/lib/layout.ts` where badges are drawn
 - `public/badges/<category>/<slug>.png` badge art (proficiency badges, and the imported shoulder boards, rank insignia and gorgets)
 
 ## Status

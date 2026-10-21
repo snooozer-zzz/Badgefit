@@ -1,3 +1,4 @@
+// Small helpers for badge art files: where a file lives, how to load it, and the placeholder initials.
 import type { Badge } from '../data/schema';
 
 /** Resolves a path under public/ so it also works when the app runs from file:// inside Capacitor. */

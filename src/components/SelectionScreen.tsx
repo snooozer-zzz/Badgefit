@@ -1,3 +1,4 @@
+// The first screen: pick service, gender, uniform, rank and branch, then Create.
 import { useMemo, useState } from 'react';
 import type { Badge, Options, Uniform } from '../data/schema';
 import {
@@ -53,16 +54,13 @@ export function SelectionScreen({ options, uniforms, badges, initial, onCreate }
       >
         <h2 id="select-title">Choose your uniform</h2>
 
-        <div className="select-row">
-          <span className="select-label">Service</span>
+        <Row label="Service">
           <Combobox label="Service" options={serviceOptions(options)} value={sel.service} onChange={(id) => set({ service: id })} />
-        </div>
-        <div className="select-row">
-          <span className="select-label">Gender</span>
+        </Row>
+        <Row label="Gender">
           <Combobox label="Gender" options={genderOptions(options)} value={sel.gender} onChange={(id) => set({ gender: id })} />
-        </div>
-        <div className="select-row">
-          <span className="select-label">Uniform</span>
+        </Row>
+        <Row label="Uniform">
           <Combobox
             label="Uniform"
             options={dresses}
@@ -70,15 +68,13 @@ export function SelectionScreen({ options, uniforms, badges, initial, onCreate }
             onChange={(id) => set({ dress: id })}
             disabledReason={!sel.service || !sel.gender ? 'Pick a service and gender first' : undefined}
           />
-        </div>
-        <div className="select-row">
-          <span className="select-label">Rank</span>
+        </Row>
+        <Row label="Rank">
           <Combobox label="Rank" options={ranks} value={sel.rank} onChange={(id) => set({ rank: id })} placeholder="Select or type, e.g. 2LT" />
-        </div>
-        <div className="select-row">
-          <span className="select-label">Branch</span>
+        </Row>
+        <Row label="Branch">
           <Combobox label="Branch" options={branches} value={sel.branch} onChange={(id) => set({ branch: id })} disabledReason={branchReason} />
-        </div>
+        </Row>
 
         <p className="select-hint" role="status" aria-live="polite">
           {missing ? `Still to pick: ${missing}.` : 'Ready.'}
@@ -88,5 +84,15 @@ export function SelectionScreen({ options, uniforms, badges, initial, onCreate }
         </button>
       </form>
     </main>
+  );
+}
+
+/** One line of the form: a label and its dropdown. */
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="select-row">
+      <span className="select-label">{label}</span>
+      {children}
+    </div>
   );
 }

@@ -1,8 +1,12 @@
+// Tests for the placement rules (placement.ts), the layout of badges on a uniform (layout.ts) and ribbons (ribbon.ts).
 import { describe, expect, it } from 'vitest';
 import { badges, categories, mountedList, uniforms } from '../data';
-import type { Badge } from '../data/schema';
-import { badgeKey, canPlace, layoutBadges, placeBadge } from './placement';
+import type { Badge, Uniform } from '../data/schema';
+import { layoutBadges } from './layout';
+import { badgeKey, canPlace, placeBadge } from './placement';
+import { ART_PX, ribbonCrop, ribbonSpec } from './ribbon';
 
+// The Number 1 uniform most tests use, and a lookup for a real badge by category and slug.
 const uniform = uniforms.find((u) => u.id === 'number-1')!;
 const get = (category: string, slug: string) => {
   const b = badges.find((x) => x.category === category && x.slug === slug);
@@ -106,6 +110,7 @@ describe('perspective sprites', () => {
 
 // Rules from the SAF No.1 Dress guideline (March 2024), Army No.1 section.
 // Foreign badges are not in the catalogue yet, so these tests use made-up badges.
+/** Makes a badge for a test. */
 const makeBadge = (category: string, slug: string, extra: Partial<Badge> = {}): Badge => ({
   slug,
   name: slug,
@@ -209,6 +214,7 @@ describe('SAF No.1 Dress rules', () => {
 // Chest layout (SAF No.1 Dress, March 2024, pictures D-1 to D-10).
 // Both pocket flaps have their top edge at y = 207.5 in number-1.png (measured from the picture).
 const FLAP_TOP = 207.5;
+// Small helpers for the layout tests: rows of boxes, their edges, and the boxes at one spot.
 const medalList = badges.filter((b) => b.category === 'medals');
 const skillsBadge = get('skills', 'basic-parachutist');
 const foreign = (slug: string) => makeBadge('foreign-badges', slug);
@@ -393,4 +399,245 @@ describe('many medals (picture D-3 draws them overlapping)', () => {
     expect(row.map((b) => badgeKey(b.badge))).toEqual(medalList.slice(0, 7).map(badgeKey));
     for (let i = 1; i < row.length; i++) expect(row[i].x).toBeGreaterThan(row[i - 1].x);
   });
+});
+
+// Male No. 2, No. 5 and No. 5J: their own chest and lapel layouts (Guidelines for uniform.pdf, mock-up placement-draft.png).
+// All sizes and positions here are uniform-image pixels; pxPerMm is 1.
+/** Finds a uniform by id. */
+const dress = (id: string): Uniform => uniforms.find((u) => u.id === id)!;
+const SERVICES = ['army', 'rsaf', 'rsn'];
+const safThree = [skillsBadge, get('skills', 'combat-skills'), get('skills', 'rigger')];
+/** The boxes at one spot of a uniform. */
+const at = (u: Uniform, placed: Badge[], anchorId: string, scale = 1) =>
+  layoutBadges(u, placed, categories, scale).filter((b) => b.anchor.id === anchorId);
+const centreX = (boxes: { x: number; width: number }[]) => (Math.min(...boxes.map((b) => b.x)) + Math.max(...boxes.map((b) => b.x + b.width))) / 2;
+
+// The No. 2 lapel layouts. The Army drawing was redrawn (upper lapel, long lower lapel) and its layout was chosen with the
+// project owner (draft F). The RSAF and RSN drawings are not redrawn yet, so they keep the first layout.
+const LAPEL = {
+  army: { cx: 472, medalScale: 0.495, medalTop: 190, safScale: 0.603, safGap: 1.8, rowGap: -10.5, hGap: 2 },
+  rsaf: { cx: 446, medalScale: 0.557, medalTop: 165, safScale: 0.63, safGap: 8, rowGap: 2, hGap: 3 },
+  rsn: { cx: 520, medalScale: 0.557, medalTop: 165, safScale: 0.63, safGap: 8, rowGap: 2, hGap: 3 },
+};
+
+describe('anchor scale (miniature medals on the No. 2 lapel)', () => {
+  for (const service of SERVICES) {
+    const u = dress(`number-2-${service}-male`);
+    const { cx, medalScale, medalTop, safScale, safGap, rowGap, hGap } = LAPEL[service as keyof typeof LAPEL];
+
+    it(`${u.id}: draws medals at ${medalScale} of their box, hanging from y ${medalTop}, centred on x ${cx}, 1 px apart`, () => {
+      const row = at(u, medalList.slice(0, 3), 'left-chest-medals');
+      expect(row).toHaveLength(3);
+      for (const b of row) {
+        expect(b.width).toBeCloseTo(32.3 * medalScale);
+        expect(b.height).toBeCloseTo(88.4 * medalScale);
+        expect(b.y).toBeCloseTo(medalTop);
+        expect(b.render).toBe('art');
+      }
+      expect(row[1].x - (row[0].x + row[0].width)).toBeCloseTo(1);
+      expect(centreX(row)).toBeCloseTo(cx);
+    });
+
+    it(`${u.id}: multiplies the spot scale with the viewer scale`, () => {
+      const [medal] = at(u, [medalList[0]], 'left-chest-medals', 1.5);
+      expect(medal.width).toBeCloseTo(32.3 * medalScale * 1.5);
+    });
+
+    it(`${u.id}: stands SAF badges ${safGap} px above the medals at ${safScale}, in a pyramid with ${rowGap} px between its rows`, () => {
+      const placed = [...safThree, ...medalList.slice(0, 3)];
+      const saf = at(u, placed, 'left-chest-above-pocket');
+      const [apex, left, right] = saf;
+      for (const b of saf) expect(b.width).toBeCloseTo(39 * safScale);
+      expect(rowBottom(saf)).toBeCloseTo(rowTop(at(u, placed, 'left-chest-medals')) - safGap);
+      expect(left.y - (apex.y + apex.height)).toBeCloseTo(rowGap); // negative: the boxes overlap, the art inside them does not
+      expect(left.y).toBeCloseTo(right.y);
+      expect(right.x - (left.x + left.width)).toBeCloseTo(hGap);
+      expect(apex.x + apex.width / 2).toBeCloseTo(cx);
+      expect(centreX([left, right])).toBeCloseTo(cx);
+    });
+
+    it(`${u.id}: keeps the SAF badges where they are with no medals (the medals hang from a fixed top)`, () => {
+      expect(rowBottom(at(u, [skillsBadge], 'left-chest-above-pocket'))).toBeCloseTo(medalTop - safGap);
+      expect(rowBottom(at(u, [skillsBadge, medalList[0]], 'left-chest-above-pocket'))).toBeCloseTo(medalTop - safGap);
+    });
+  }
+});
+
+describe('ribbon bar (render "ribbon" on No. 5 and No. 5J)', () => {
+  const dresses = [
+    { id: 'number-5', x: 450, bottom: 219 },
+    { id: 'number-5j', x: 520, bottom: 232 },
+  ];
+  for (const { id, x, bottom } of dresses) {
+    for (const service of SERVICES) {
+      const u = dress(`${id}-${service}-male`);
+
+      it(`${u.id}: draws each medal as a 17.6 x 12 ribbon, 3 abreast with no gap, centred on x ${x}, standing on y ${bottom}`, () => {
+        const row = at(u, medalList.slice(0, 3), 'left-chest-medals');
+        expect(row).toHaveLength(3);
+        for (const b of row) {
+          expect(b.render).toBe('ribbon');
+          expect(b.width).toBeCloseTo(17.6);
+          expect(b.height).toBeCloseTo(12);
+          expect(b.y + b.height).toBeCloseTo(bottom);
+        }
+        expect(row[1].x).toBeCloseTo(row[0].x + 17.6);
+        expect(row[2].x).toBeCloseTo(row[1].x + 17.6);
+        expect(centreX(row)).toBeCloseTo(x);
+        expect(Math.max(...row.map((b) => b.x + b.width)) - Math.min(...row.map((b) => b.x))).toBeCloseTo(52.8);
+        expect(row.map((b) => badgeKey(b.badge))).toEqual(medalList.slice(0, 3).map(badgeKey)); // the order picked
+      });
+    }
+  }
+
+  const five = dress('number-5-army-male');
+
+  it('centres a short bar on the anchor too (1 and 2 ribbons)', () => {
+    expect(centreX(at(five, medalList.slice(0, 1), 'left-chest-medals'))).toBeCloseTo(450);
+    expect(centreX(at(five, medalList.slice(0, 2), 'left-chest-medals'))).toBeCloseTo(450);
+  });
+
+  it('stacks a fourth ribbon in a new row above the first, centred, and the next rows above that', () => {
+    const row = at(five, medalList.slice(0, 7), 'left-chest-medals');
+    expect(row).toHaveLength(7);
+    expect(row[3].y + row[3].height).toBeCloseTo(219 - 12);
+    expect(centreX(row.slice(3, 6))).toBeCloseTo(450); // a full second row
+    expect(row[6].y + row[6].height).toBeCloseTo(219 - 24);
+    expect(row[6].x + row[6].width / 2).toBeCloseTo(450); // the seventh stands alone above them, centred
+    expect(row.map((b) => b.slot)).toEqual([0, 1, 2, 3, 4, 5, 6]);
+  });
+
+  it('scales a ribbon with the viewer scale but keeps the bottom edge of the bar', () => {
+    const [ribbon] = at(five, [medalList[0]], 'left-chest-medals', 1.5);
+    expect(ribbon.width).toBeCloseTo(17.6 * 1.5);
+    expect(ribbon.height).toBeCloseTo(12 * 1.5);
+    expect(ribbon.y + ribbon.height).toBeCloseTo(219);
+  });
+
+  it('draws whole medals (not ribbons) on No. 1 and on the No. 2 lapel', () => {
+    expect(layoutBadges(uniform, [medalList[0]], categories, 1)[0].render).toBe('art');
+    expect(layoutBadges(dress('number-2-army-male'), [medalList[0]], categories, 1)[0].render).toBe('art');
+  });
+
+  it('gives every medal a ribbon crop inside its 512 px art, and a default band for one without', () => {
+    for (const medal of medalList) {
+      const r = ribbonCrop(medal);
+      expect(medal.ribbon, medal.slug).toBeDefined();
+      expect(r.x).toBeGreaterThanOrEqual(0);
+      expect(r.y).toBeGreaterThanOrEqual(0);
+      expect(r.x + r.width).toBeLessThanOrEqual(ART_PX);
+      expect(r.y + r.height).toBeLessThanOrEqual(ART_PX);
+    }
+    const fallback = ribbonCrop({ widthMm: 32.3, heightMm: 88.4 });
+    expect(fallback.width).toBeCloseTo((ART_PX * 32.3) / 88.4);
+    expect(fallback.x + fallback.width / 2).toBeCloseTo(ART_PX / 2);
+  });
+
+  it('reads the ribbon size from the anchor, with 17.6 x 12 and 3 a row as the default', () => {
+    expect(ribbonSpec({})).toEqual({ widthMm: 17.6, heightMm: 12, perRow: 3 });
+    expect(ribbonSpec(five.anchors.find((a) => a.id === 'left-chest-medals')!)).toEqual({ widthMm: 17.6, heightMm: 12, perRow: 3 });
+  });
+
+  for (const { id, x } of dresses) for (const service of SERVICES) {
+    const u = dress(`${id}-${service}-male`);
+
+    it(`${u.id}: stands SAF badges 6.4 px above the top of the ribbons, scaled 0.96, 6 px of art between the pyramid rows`, () => {
+      for (const medals of [1, 4]) {
+        const placed = [...safThree, ...medalList.slice(0, medals)];
+        const saf = at(u, placed, 'left-chest-above-pocket');
+        const [apex, left, right] = saf;
+        expect(rowBottom(saf)).toBeCloseTo(rowTop(at(u, placed, 'left-chest-medals')) - 6.4);
+        for (const b of saf) expect(b.width).toBeCloseTo(39 * 0.96);
+        expect(left.y - (apex.y + apex.height)).toBeCloseTo(-4.7); // the boxes overlap; the art inside them is about 6 px apart
+        expect(right.x - (left.x + left.width)).toBeCloseTo(9);
+        expect(apex.x + apex.width / 2).toBeCloseTo(x);
+        expect(centreX([left, right])).toBeCloseTo(x);
+      }
+    });
+
+    it(`${u.id}: stands the SAF badges where one row of ribbons would put them when no medals are worn`, () => {
+      const ribbonTop = rowTop(at(u, [medalList[0]], 'left-chest-medals'));
+      expect(rowBottom(at(u, [skillsBadge], 'left-chest-above-pocket'))).toBeCloseTo(ribbonTop - 6.4);
+    });
+  }
+});
+
+describe('IPPT, marksmanship and the silver arms badge on the male No. 2, No. 5 and No. 5J', () => {
+  const ippt = get('proficiency', 'ippt-gold');
+  const marksmanship = get('proficiency', 'marksmanship');
+
+  for (const service of SERVICES) {
+    const u = dress(`number-2-${service}-male`);
+
+    it(`${u.id}: has no proficiency spot on the sleeve, only on the left upper lapel`, () => {
+      expect(u.anchors.some((a) => a.id === 'left-shoulder-sleeve')).toBe(false);
+      for (const badge of [ippt, get('proficiency', 'ippt-silver'), marksmanship]) {
+        const r = canPlace(u, badge, [], categories);
+        expect(r.ok && r.anchor.id).toBe('left-upper-lapel');
+      }
+      expect(u.anchors.find((a) => a.id === 'left-upper-lapel')?.flat).toBe(true);
+    });
+
+    const pinsAt = service === 'army' ? { x: 472, y: 109.5 } : { x: 481, y: 118 };
+    it(`${u.id}: draws the two pins one above the other, IPPT on top whichever was picked first, centred on (${pinsAt.x}, ${pinsAt.y})`, () => {
+      for (const picked of [[ippt, marksmanship], [marksmanship, ippt]]) {
+        const [first, second] = at(u, picked, 'left-upper-lapel');
+        expect(first.badge).toBe(ippt);
+        expect(second.badge).toBe(marksmanship);
+        expect(first.x + first.width / 2).toBeCloseTo(pinsAt.x); // one vertical line
+        expect(second.x + second.width / 2).toBeCloseTo(pinsAt.x);
+        expect(second.y - (first.y + first.height)).toBeCloseTo(2);
+        expect((first.y + second.y + second.height) / 2).toBeCloseTo(pinsAt.y); // the pair is centred on the spot
+        // The art of both fills 451 of its 512 px across.
+        expect((first.width * 451) / ART_PX).toBeCloseTo(14, 0);
+        expect((second.width * 451) / ART_PX).toBeCloseTo(16, 0);
+      }
+    });
+
+    it(`${u.id}: still allows one IPPT badge and then the marksmanship badge`, () => {
+      expect(canPlace(u, get('proficiency', 'ippt-silver'), [ippt], categories).ok).toBe(false);
+      expect(canPlace(u, marksmanship, [ippt], categories).ok).toBe(true);
+    });
+  }
+
+  it('keeps IPPT and marksmanship on the left sleeve of No. 5 and No. 5J, marksmanship below IPPT', () => {
+    for (const id of ['number-5-army-male', 'number-5-rsn-male', 'number-5j-army-male', 'number-5j-rsaf-male']) {
+      const u = dress(id);
+      const r = canPlace(u, ippt, [], categories);
+      expect(r.ok && r.anchor.id, id).toBe('left-shoulder-sleeve');
+      const [top, bottom] = at(u, [marksmanship, ippt], 'left-shoulder-sleeve');
+      expect(top.badge, id).toBe(ippt);
+      expect(bottom.y, id).toBeGreaterThan(top.y);
+    }
+  });
+
+  // The silver pins are all drawn 346 px tall in their 512 px square; the infantry pin (the narrowest) is 258 px wide.
+  const SILVER_INFANTRY_WIDTH = 258;
+  const visible = (width: number) => (width * SILVER_INFANTRY_WIDTH) / ART_PX;
+
+  it('puts the silver arms badge on the upper lapel of No. 2 (20 px on the Army drawing, 14 px on the others) and on the collar of No. 5 and No. 5J (16 px)', () => {
+    const arms = get('arms', 'infantry');
+    const [army] = layoutBadges(dress('number-2-army-male'), [arms], categories, 1);
+    expect(army.anchor.id).toBe('right-upper-lapel');
+    expect(visible(army.width)).toBeCloseTo(20, 0);
+    expect(army.x + army.width / 2).toBeCloseTo(262);
+    expect(army.y + army.height / 2).toBeCloseTo(110);
+    for (const service of ['rsaf', 'rsn']) {
+      const [lapel] = layoutBadges(dress(`number-2-${service}-male`), [arms], categories, 1);
+      expect(visible(lapel.width), service).toBeCloseTo(14, 0);
+      expect(lapel.x + lapel.width / 2, service).toBeCloseTo(252);
+      expect(lapel.y + lapel.height / 2, service).toBeCloseTo(93);
+    }
+    for (const id of ['number-5', 'number-5j']) {
+      for (const service of SERVICES) {
+        const boxes = layoutBadges(dress(`${id}-${service}-male`), [arms], categories, 1);
+        expect(boxes, id).toHaveLength(1);
+        expect(visible(boxes[0].width), id).toBeCloseTo(16, 0);
+        expect(boxes[0].x + boxes[0].width / 2, id).toBeCloseTo(330);
+        expect(boxes[0].y + boxes[0].height / 2, id).toBeCloseTo(98);
+        expect(boxes[0].rotation, id).toBe(0);
+      }
+    }
+  });
+
 });

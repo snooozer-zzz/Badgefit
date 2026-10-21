@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import type { PlacedBox } from '../lib/placement';
+// Draws the uniform picture with the worn badges on it. You can zoom, drag, and click a badge to remove it.
+import type { PlacedBox } from '../lib/layout';
 import type { Badge, Mounted, Uniform } from '../data/schema';
 import { assetUrl } from '../lib/assets';
 import { resolveBadgeArt } from '../lib/art';
-import { BadgeOnUniform } from './BadgeArt';
+import { badgeKey } from '../lib/placement';
+import { BadgeOnUniform, RibbonOnUniform } from './BadgeArt';
+import { MAX_ZOOM, MIN_ZOOM, useZoomPan } from './useZoomPan';
 
 interface Props {
   uniform: Uniform;
@@ -20,183 +22,114 @@ interface Props {
   onRemove: (badge: Badge) => void;
 }
 
-const MIN_ZOOM = 1;
-const MAX_ZOOM = 8;
-const DRAG_THRESHOLD_PX = 4;
-
-/** Zoom level plus the centre of the visible window, in uniform image pixels. */
-interface View {
-  z: number;
-  cx: number;
-  cy: number;
-}
-
+/** The uniform picture, its placement-spot markers, the worn badges and the zoom buttons. */
 export function UniformStage({ uniform, boxes, mounted, service, lockedKeys, showAnchors, highlightAnchorId, onRemove }: Props) {
-  const { width: W, height: H } = uniform;
-  const svgRef = useRef<SVGSVGElement>(null);
-  const [view, setView] = useState<View>({ z: 1, cx: W / 2, cy: H / 2 });
-  const viewRef = useRef(view);
-  const drag = useRef<{ x: number; y: number; moved: boolean } | null>(null);
-  const suppressClick = useRef(false);
-  const [dragging, setDragging] = useState(false);
-
-  const apply = useCallback(
-    (next: View) => {
-      const z = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, next.z));
-      const hw = W / (2 * z);
-      const hh = H / (2 * z);
-      const v = {
-        z,
-        cx: Math.min(W - hw, Math.max(hw, next.cx)),
-        cy: Math.min(H - hh, Math.max(hh, next.cy)),
-      };
-      viewRef.current = v;
-      setView(v);
-    },
-    [W, H],
-  );
-
-  /** Zoom by `factor`, keeping the uniform point at (clientX, clientY) under the cursor. */
-  const zoomAt = useCallback(
-    (factor: number, clientX?: number, clientY?: number) => {
-      const svg = svgRef.current;
-      const v = viewRef.current;
-      const z = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, v.z * factor));
-      let px = v.cx;
-      let py = v.cy;
-      const ctm = svg?.getScreenCTM();
-      if (svg && ctm && clientX !== undefined && clientY !== undefined) {
-        const pt = new DOMPoint(clientX, clientY).matrixTransform(ctm.inverse());
-        px = pt.x;
-        py = pt.y;
-      }
-      // Origin of the new window so that (px, py) stays at the same place on screen.
-      const ox = px - (px - (v.cx - W / (2 * v.z))) * (v.z / z);
-      const oy = py - (py - (v.cy - H / (2 * v.z))) * (v.z / z);
-      apply({ z, cx: ox + W / (2 * z), cy: oy + H / (2 * z) });
-    },
-    [apply, W, H],
-  );
-
-  // React's onWheel is passive, so preventDefault (stop the page scrolling) needs a native listener.
-  useEffect(() => {
-    const svg = svgRef.current;
-    if (!svg) return;
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      zoomAt(Math.exp(-e.deltaY * 0.0015), e.clientX, e.clientY);
-    };
-    svg.addEventListener('wheel', onWheel, { passive: false });
-    return () => svg.removeEventListener('wheel', onWheel);
-  }, [zoomAt]);
-
-  const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
-    if (e.button !== 0) return;
-    suppressClick.current = false;
-    drag.current = { x: e.clientX, y: e.clientY, moved: false };
-  };
-
-  const onPointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
-    const d = drag.current;
-    const ctm = svgRef.current?.getScreenCTM();
-    if (!d || !ctm) return;
-    const dx = e.clientX - d.x;
-    const dy = e.clientY - d.y;
-    if (!d.moved) {
-      if (Math.hypot(dx, dy) < DRAG_THRESHOLD_PX) return;
-      d.moved = true;
-      suppressClick.current = true; // a drag must not count as a click on a placed badge
-      setDragging(true);
-      e.currentTarget.setPointerCapture(e.pointerId);
-    }
-    d.x = e.clientX;
-    d.y = e.clientY;
-    const v = viewRef.current;
-    apply({ ...v, cx: v.cx - dx / ctm.a, cy: v.cy - dy / ctm.d });
-  };
-
-  const endDrag = () => {
-    drag.current = null;
-    setDragging(false);
-  };
-
+  const { svgRef, view, dragging, zoomAt, reset, handlers } = useZoomPan(uniform.width, uniform.height);
   const zoomed = view.z > MIN_ZOOM;
-  const vw = W / view.z;
-  const vh = H / view.z;
+  const visibleWidth = uniform.width / view.z;
+  const visibleHeight = uniform.height / view.z;
+  const className = dragging ? 'stage dragging' : zoomed ? 'stage zoomed' : 'stage';
 
   return (
     <div className="stage-frame">
-    <svg
-      ref={svgRef}
-      className={dragging ? 'stage dragging' : zoomed ? 'stage zoomed' : 'stage'}
-      viewBox={`${view.cx - vw / 2} ${view.cy - vh / 2} ${vw} ${vh}`}
-      role="img"
-      aria-label={`${uniform.name} with badges`}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={endDrag}
-      onPointerCancel={endDrag}
-      onClickCapture={(e) => {
-        if (suppressClick.current) {
-          e.stopPropagation();
-          suppressClick.current = false;
-        }
-      }}
-    >
-      <image href={assetUrl(uniform.image)} x={0} y={0} width={uniform.width} height={uniform.height} />
+      <svg
+        ref={svgRef}
+        className={className}
+        viewBox={`${view.cx - visibleWidth / 2} ${view.cy - visibleHeight / 2} ${visibleWidth} ${visibleHeight}`}
+        role="img"
+        aria-label={`${uniform.name} with badges`}
+        {...handlers}
+      >
+        <image href={assetUrl(uniform.image)} x={0} y={0} width={uniform.width} height={uniform.height} />
 
-      {(showAnchors || highlightAnchorId) &&
-        uniform.anchors.map((a) => {
-          const active = a.id === highlightAnchorId;
-          if (!showAnchors && !active) return null;
+        <AnchorMarkers uniform={uniform} showAll={showAnchors} highlightId={highlightAnchorId} />
+
+        {boxes.map((box) => {
+          const key = badgeKey(box.badge);
           return (
-            <g key={a.id} className={active ? 'anchor active' : 'anchor'} pointerEvents="none">
-              <circle cx={a.x} cy={a.y} r={active ? 20 : 13} />
-              <text x={a.x} y={a.y - (active ? 28 : 20)} textAnchor="middle">
-                {a.label}
-              </text>
-            </g>
+            <PlacedBadge
+              key={`${key}/${box.side}`}
+              box={box}
+              uniform={uniform}
+              mounted={mounted}
+              service={service}
+              locked={lockedKeys.has(key)}
+              onRemove={onRemove}
+            />
           );
         })}
+      </svg>
 
-      {boxes.map(({ badge, slot, side, x, y, width, height, rotation }) => {
-        const key = `${badge.category}/${badge.slug}`;
-        const locked = lockedKeys.has(key);
-        const slots = mounted?.items[key];
-        const sprites = slots ? slots[Math.min(slot, slots.length - 1)] : null;
+      <div className="zoom-controls" role="group" aria-label="Zoom">
+        <button type="button" onClick={() => zoomAt(1.5)} disabled={view.z >= MAX_ZOOM} aria-label="Zoom in">+</button>
+        <button type="button" onClick={() => zoomAt(1 / 1.5)} disabled={!zoomed} aria-label="Zoom out">−</button>
+        <button type="button" onClick={reset} disabled={!zoomed} aria-label="Reset zoom">⟲</button>
+      </div>
+    </div>
+  );
+}
+
+/** Circles and labels for the placement spots: all of them, or only the highlighted one. */
+function AnchorMarkers({ uniform, showAll, highlightId }: { uniform: Uniform; showAll: boolean; highlightId: string | null }) {
+  return (
+    <>
+      {uniform.anchors.map((a) => {
+        const active = a.id === highlightId;
+        if (!showAll && !active) return null;
         return (
-          <g
-            key={`${key}/${side}`}
-            className={locked ? 'placed locked' : 'placed'}
-            transform={rotation ? `rotate(${rotation} ${x + width / 2} ${y + height / 2})` : undefined}
-            onClick={() => onRemove(badge)}
-            tabIndex={0}
-            role="button"
-            aria-label={locked ? `${badge.name} (part of your selection)` : `Remove ${badge.name}`}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onRemove(badge);
-              }
-            }}
-          >
-            <title>{locked ? `${badge.name} (part of your selection)` : `${badge.name} (click to remove)`}</title>
-            {sprites ? (
-              sprites.map((s) => (
-                <image key={s.href} href={assetUrl(s.href)} x={s.x} y={s.y} width={s.width} height={s.height} />
-              ))
-            ) : (
-              <BadgeOnUniform badge={badge} artPath={resolveBadgeArt(badge, { service, uniform: uniform.id })} x={x} y={y} width={width} height={height} />
-            )}
+          <g key={a.id} className={active ? 'anchor active' : 'anchor'} pointerEvents="none">
+            <circle cx={a.x} cy={a.y} r={active ? 20 : 13} />
+            <text x={a.x} y={a.y - (active ? 28 : 20)} textAnchor="middle">
+              {a.label}
+            </text>
           </g>
         );
       })}
-    </svg>
-    <div className="zoom-controls" role="group" aria-label="Zoom">
-      <button type="button" onClick={() => zoomAt(1.5)} disabled={view.z >= MAX_ZOOM} aria-label="Zoom in">+</button>
-      <button type="button" onClick={() => zoomAt(1 / 1.5)} disabled={!zoomed} aria-label="Zoom out">−</button>
-      <button type="button" onClick={() => apply({ z: 1, cx: W / 2, cy: H / 2 })} disabled={!zoomed} aria-label="Reset zoom">⟲</button>
-    </div>
-    </div>
+    </>
+  );
+}
+
+interface PlacedBadgeProps {
+  box: PlacedBox;
+  uniform: Uniform;
+  mounted: Mounted | null;
+  service: string | null;
+  locked: boolean;
+  onRemove: (badge: Badge) => void;
+}
+
+/** One worn badge: drawn from its perspective sprites, as a ribbon, or as flat art. Click or Enter removes it. */
+function PlacedBadge({ box, uniform, mounted, service, locked, onRemove }: PlacedBadgeProps) {
+  const { badge, anchor, slot, x, y, width, height, rotation, render } = box;
+  // Perspective sprites only where the spot is on a shaped part of the uniform: a ribbon, or a spot marked flat, uses the flat art.
+  const slots = render === 'ribbon' || anchor.flat ? undefined : mounted?.items[badgeKey(badge)];
+  const sprites = slots ? slots[Math.min(slot, slots.length - 1)] : null;
+  const artPath = resolveBadgeArt(badge, { service, dress: uniform.dress, uniform: uniform.id });
+  const label = locked ? `${badge.name} (part of your selection)` : `Remove ${badge.name}`;
+
+  return (
+    <g
+      className={locked ? 'placed locked' : 'placed'}
+      transform={rotation ? `rotate(${rotation} ${x + width / 2} ${y + height / 2})` : undefined}
+      onClick={() => onRemove(badge)}
+      tabIndex={0}
+      role="button"
+      aria-label={label}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onRemove(badge);
+        }
+      }}
+    >
+      <title>{locked ? label : `${badge.name} (click to remove)`}</title>
+      {sprites ? (
+        sprites.map((s) => <image key={s.href} href={assetUrl(s.href)} x={s.x} y={s.y} width={s.width} height={s.height} />)
+      ) : render === 'ribbon' ? (
+        <RibbonOnUniform badge={badge} artPath={artPath} x={x} y={y} width={width} height={height} />
+      ) : (
+        <BadgeOnUniform badge={badge} artPath={artPath} x={x} y={y} width={width} height={height} />
+      )}
+    </g>
   );
 }

@@ -1,15 +1,15 @@
+// The finished uniform screen: the uniform picture, the badge library, and the badges the user has picked.
 import { useEffect, useMemo, useState } from 'react';
 import { badges, categories, mountedList, options } from '../data';
 import type { Badge, Uniform } from '../data/schema';
 import { resolveMounted } from '../lib/art';
 import { libraryBadges, libraryCategories } from '../lib/library';
-import { badgeKey, findAnchor, layoutBadges, placeBadge } from '../lib/placement';
-import { describeSelection, loadoutFor, loadoutKeys, type Selection } from '../lib/selection';
+import { layoutBadges } from '../lib/layout';
+import { badgeKey, findAnchor, placeBadge } from '../lib/placement';
+import { describeSelection, loadoutFor, type Selection } from '../lib/selection';
+import { loadPickedKeys, savePickedKeys } from '../lib/storage';
 import { BadgeLibrary } from './BadgeLibrary';
 import { UniformStage } from './UniformStage';
-
-/** Badges are always drawn at real-world size; there is no size control. */
-const BADGE_SCALE = 1;
 
 const badgeByKey = new Map(badges.map((b) => [badgeKey(b), b]));
 const pickableCategories = libraryCategories(categories);
@@ -18,15 +18,7 @@ const pickableKeys = new Set(pickableBadges.map(badgeKey));
 
 /** The badges the user picked on this uniform last time. Anything no longer pickable is dropped. */
 function loadPicked(storageKey: string): Badge[] {
-  try {
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) return [];
-    const keys: unknown = JSON.parse(raw);
-    if (!Array.isArray(keys)) return [];
-    return keys.flatMap((k) => (typeof k === 'string' && pickableKeys.has(k) ? [badgeByKey.get(k)!] : []));
-  } catch {
-    return []; // storage can be unavailable (private mode, blocked site data)
-  }
+  return loadPickedKeys(storageKey).flatMap((key) => (pickableKeys.has(key) ? [badgeByKey.get(key)!] : []));
 }
 
 interface Props {
@@ -44,24 +36,24 @@ export function UniformScreen({ uniform, selection, onChangeUniform }: Props) {
   const [showAnchors, setShowAnchors] = useState(false);
   const [hint, setHint] = useState<Badge | null>(null);
 
-  useEffect(() => {
-    try {
-      localStorage.setItem(storageKey, JSON.stringify(picked.map(badgeKey)));
-    } catch {
-      /* ignore: persistence is a convenience only */
-    }
-  }, [picked, storageKey]);
+  // Remember the picked badges for next time.
+  useEffect(() => savePickedKeys(storageKey, picked.map(badgeKey)), [picked, storageKey]);
 
   // What the selection wears: it changes only by going back to the selection screen.
   const loadout = useMemo(() => loadoutFor(selection, uniform, badges, categories, options), [selection, uniform]);
-  const lockedKeys = useMemo(() => loadoutKeys(loadout), [loadout]);
+  const lockedKeys = useMemo(() => new Set(loadout.badges.map(badgeKey)), [loadout]);
   const worn = useMemo(() => [...loadout.badges, ...picked], [loadout, picked]);
 
-  const boxes = useMemo(() => layoutBadges(uniform, worn, categories, BADGE_SCALE), [uniform, worn]);
+  // Badges are drawn at real-world size (scale 1): there is no size control.
+  const boxes = useMemo(() => layoutBadges(uniform, worn, categories, 1), [uniform, worn]);
   const pickedKeys = useMemo(() => new Set(picked.map(badgeKey)), [picked]);
-  const mounted = useMemo(() => resolveMounted(mountedList, uniform.mountedFrom ?? uniform.id, selection.service), [uniform.mountedFrom, uniform.id, selection.service]);
+  const mounted = useMemo(
+    () => resolveMounted(mountedList, uniform.mountedFrom ?? uniform.id, selection.service, uniform.dress),
+    [uniform.mountedFrom, uniform.id, uniform.dress, selection.service],
+  );
   const hintAnchor = hint ? findAnchor(uniform, hint) : undefined;
 
+  // Takes a badge off the uniform, unless it comes from the selection (then it says so).
   const remove = (badge: Badge) => {
     if (lockedKeys.has(badgeKey(badge))) {
       setMessage(`${badge.name} is part of your selection. Use Change uniform to change it.`);
@@ -71,6 +63,7 @@ export function UniformScreen({ uniform, selection, onChangeUniform }: Props) {
     setMessage(`${badge.name} removed.`);
   };
 
+  // Puts a library badge on the uniform, or takes it off if it is already there.
   const place = (badge: Badge) => {
     if (pickedKeys.has(badgeKey(badge))) {
       remove(badge); // picking a placed badge again takes it off

@@ -17,44 +17,46 @@
     {
       "id": "left-chest-medals",
       "label": "Left chest (medals)",
-      "x": 482,
-      "y": 147.5,
+      "x": 520,
+      "y": 165,
       "accepts": [
         "medals"
       ],
       "layout": {
         "direction": "horizontal",
-        "gapPx": 2,
+        "gapPx": 1,
         "align": "top",
         "maxWidthMm": 160
       },
       "verified": false,
-      "note": "SAF No.1 Dress PDF (March 2024): centred, the top of the medals 6 cm above the top edge of the left pocket flap (y = flap top 207.5 - 60 mm x pxPerMm), one row, in the order picked (no order of wear is given). Centred on the pocket: the PDF does not say what \"centred\" is measured from. pxPerMm is not calibrated. A row wider than 160 mm overlaps its medals so it fits: this comes from picture D-3 only (7 medals drawn about 1.2 x the flap width, flap = 131 mm); the PDF text gives no overlap rule. This drawing has no pocket flaps, so the spot is where number-1 puts it (the 6 cm and 1 cm distances are measured from where its flap would be). Same placement as number-1 (project owner)."
+      "note": "No. 2 (mess dress), Guidelines for uniform.pdf (project owner) pp.5-6: miniature medals on the left lower lapel, top edge 6 cm below the lapel notch (notch at about y 103, so y 165), one row, in the order picked. Drawn as miniatures: scale 0.557 (about 18 px visible width each, 1 px gap), centred at x 446. A row wider than 160 mm (scaled) overlaps its medals so it fits; that limit comes from picture D-3 of the SAF No.1 Dress PDF only. Position and scale are read off the picture, not calibrated (pxPerMm is an assumption). RSN drawing: the pleated shirt front and its oval outline fill the middle, so the lapel is only a thin strip beside it; the group is moved right to x 520 (the other two services use x 446), which also keeps the 3-badge pyramid clear of the IPPT and marksmanship pins, so the medals and badges sit on the white jacket, not on the shirt front. Read off the picture.",
+      "scale": 0.557
     },
     {
       "id": "left-chest-above-pocket",
       "label": "Left chest, above pocket",
-      "x": 482,
-      "y": 197.5,
+      "x": 520,
+      "y": 157,
       "accepts": [
         "exceptional-skills",
         "skills"
       ],
       "layout": {
         "direction": "horizontal",
-        "gapPx": 8,
+        "gapPx": 3,
         "align": "bottom",
         "pyramid": true,
-        "rowGapPx": -16
+        "rowGapPx": 2
       },
       "verified": false,
-      "note": "SAF No.1 Dress PDF (March 2024): maximum 3 SAF badges in total, centred, bottom edge 1 cm above the left pocket flap (y = flap top 207.5 - 10 mm x pxPerMm), or 1 cm above the top of the medals when medals are worn. Exceptional skills badges come first. 1 or 2 badges are one row; 3 are a pyramid (first badge alone on top, the other two below). The PDF says the gap may change with 3 badges and medals but gives no number. pxPerMm is not calibrated. This drawing has no pocket flaps, so the spot is where number-1 puts it (the 6 cm and 1 cm distances are measured from where its flap would be). Same placement as number-1 (project owner). Badges are a fixed 39 mm (the art has transparent padding) and the two pyramid rows overlap by 16 px (rowGapPx -16), so 3 badges over medals still stay below the shoulder board: minY 75 is the lowest the top may reach (about y 70 is the board here), checked by a test. Sizes are chosen by eye, not from the regulations.",
+      "note": "No. 2, Guidelines for uniform.pdf (project owner) pp.5-6: maximum 3 SAF badges in total, centred above the miniature medals, bottom edge 8 px above the top of the medals (y 157 when no medals are worn: the same place as with medals, because the medals hang from a fixed top). Exceptional skills first. 1 or 2 badges are one row; 3 are a pyramid (first badge alone on top). Scale 0.63 (about 23 px visible width), horizontal gap 3, row gap 2 (the rows no longer overlap). minY 75 is the lowest the top may reach (the shoulder board is about y 70), checked by a test. Sizes are chosen by eye, not from the regulations. RSN drawing: the pleated shirt front and its oval outline fill the middle, so the lapel is only a thin strip beside it; the group is moved right to x 520 (the other two services use x 446), which also keeps the 3-badge pyramid clear of the IPPT and marksmanship pins, so the medals and badges sit on the white jacket, not on the shirt front. Read off the picture.",
       "maxItems": 3,
       "minY": 75,
       "stackAbove": {
         "anchor": "left-chest-medals",
-        "mmGap": 10
-      }
+        "mmGap": 8
+      },
+      "scale": 0.63
     },
     {
       "id": "right-chest-foreign",
@@ -71,7 +73,7 @@
       },
       "inLineWith": "left-chest-above-pocket",
       "verified": false,
-      "note": "SAF No.1 Dress PDF (March 2024): maximum 3, centred, bottom edge 1 cm above the top edge of the right pocket flap or in line with the SAF badges (if worn), whichever is higher. pxPerMm is not calibrated. This drawing has no pocket flaps, so the spot is where number-1 puts it (the 6 cm and 1 cm distances are measured from where its flap would be). Same placement as number-1 (project owner)."
+      "note": "SAF No.1 Dress PDF (March 2024): maximum 3, centred, bottom edge 1 cm above the top edge of the right pocket flap or in line with the SAF badges (if worn), whichever is higher. pxPerMm is not calibrated. This drawing has no pocket flaps, so the spot is where number-1 puts it (the 6 cm and 1 cm distances are measured from where its flap would be). Same placement as number-1 (project owner). Foreign badges: the PDF puts them centred on the right upper lapel with their centre 3 cm below the lapel notch (about x 290, y 133); we have no foreign badge art yet, so this spot is unchanged from number-1."
     },
     {
       "id": "right-side-id",
@@ -89,21 +91,6 @@
       "note": "Source says 'right side of the uniform'. Exact spot unknown. Same placement as number-1 (project owner)."
     },
     {
-      "id": "left-shoulder-sleeve",
-      "label": "Left shoulder sleeve",
-      "x": 635,
-      "y": 195,
-      "accepts": [
-        "proficiency"
-      ],
-      "layout": {
-        "direction": "vertical",
-        "gapPx": 8
-      },
-      "verified": false,
-      "note": "Not more than two proficiency badges. SAF No.1 Dress PDF (March 2024) p.15: centred on the shoulder board, base of the LOWER badge 15 cm down the sleeve from the shoulder seam; marksmanship below the IPPT badge (project owner). Position is a guess (scale not calibrated). The perspective sprites come from the badge-art-pipeline bundle and still use the older \"first badge 15 cm down\" spacing, so they need a re-export. Same placement as number-1 (project owner)."
-    },
-    {
       "id": "left-sleeve-tabs",
       "label": "Left sleeve (tabs)",
       "x": 611,
@@ -117,6 +104,44 @@
       },
       "verified": false,
       "note": "Maximum of two tabs. SAF No.1 Dress PDF (March 2024) p.15: centred on the shoulder board, 1 cm below the left shoulder seam, the second tab immediately before the first. Position is a guess (scale not calibrated). Same placement as number-1 (project owner)."
+    },
+    {
+      "id": "left-upper-lapel",
+      "label": "Left upper lapel (IPPT, marksmanship)",
+      "x": 481,
+      "y": 118,
+      "accepts": [
+        "proficiency"
+      ],
+      "layout": {
+        "direction": "vertical",
+        "gapPx": 2
+      },
+      "itemScales": {
+        "proficiency/ippt-gold": 0.528,
+        "proficiency/ippt-silver": 0.528,
+        "proficiency/marksmanship": 0.404
+      },
+      "flat": true,
+      "verified": false,
+      "note": "No. 2, Guidelines for uniform.pdf (project owner) pp.5-6: IPPT and marksmanship are miniature pins on the left upper lapel, not on the sleeve; here stacked one above the other, IPPT on top, about 14 px and 16 px visible width, centred at about (481, 118). Flat art. This drawing has not been redrawn like the Army one, so the spot is the old one. Position and size read off the picture, not calibrated."
+    },
+    {
+      "id": "right-upper-lapel",
+      "label": "Right upper lapel (arms badge)",
+      "x": 252,
+      "y": 93,
+      "accepts": [
+        "arms"
+      ],
+      "layout": {
+        "direction": "horizontal",
+        "gapPx": 6
+      },
+      "scale": 0.926,
+      "flat": true,
+      "verified": false,
+      "note": "No. 2, Guidelines for uniform.pdf (project owner) pp.5-6: the arms (branch) badge is worn on the right upper lapel (the viewer's left), one badge, no copy. A silver pin (art variant arms-silver): scale 0.926 keeps the 14 px visible width of the narrowest pin (infantry) the old red patch had. This drawing has not been redrawn like the Army one, so the spot is the old one. Position read off the picture, not calibrated."
     },
     {
       "id": "right-sleeve-tabs",

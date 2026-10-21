@@ -1,3 +1,4 @@
+// What the badge library shows: only the categories flagged `selectable` in categories.json.
 import type { Badge, Category } from '../data/schema';
 
 /** The categories the badge library shows: the ones flagged `selectable` in categories.json. */

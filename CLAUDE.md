@@ -12,6 +12,12 @@ separate program, `badge-art-pipeline` (sibling folder), which hands this app a 
 Read `docs/PLAN.md` for the roadmap and open questions, `docs/ADDING_BADGES.md` before touching badge data,
 and `docs/ART.md` for how art arrives from the pipeline.
 
+## Working with me
+
+I am a beginner coder: keep every change as simple and easy to read as possible
+(short functions, plain names, a comment above each file and function), and when you finish, explain what
+you changed in plain words. Do not commit anything.
+
 ## Commands
 
 - `npm run dev` start the dev server
@@ -33,7 +39,7 @@ The app opens on the selection screen (Service, Gender, Uniform, Rank, Branch; l
 ## Layout
 
 - `src/data/` all content: `categories.json`, `badges.json`, `options.json`, `uniforms/<id>.json` (13: number-1 for every service and gender, number-2/number-5 per service and gender), `schema.ts` (zod)
-- `src/lib/placement.ts` pure rules and layout. Add rules here, with tests in `placement.test.ts`
+- `src/lib/placement.ts` pure placement rules; `src/lib/layout.ts` where each badge is drawn. Add rules here, with tests in `placement.test.ts`
 - `src/components/` UI only. No rules or content in components
 - `public/uniforms/` uniform art, `public/badges/<category>/<slug>.png` redrawn badge art
 - `reference/samples/` the user's own Nano Banana uniform samples (Number 1, 2, 5) and screenshots of the

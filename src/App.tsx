@@ -1,3 +1,4 @@
+// The app: shows the selection screen until Create is pressed, then the uniform screen.
 import { useState } from 'react';
 import { badges, options, uniforms } from './data';
 import { SelectionScreen } from './components/SelectionScreen';
