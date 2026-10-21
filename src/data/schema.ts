@@ -124,7 +124,7 @@ export const AnchorSchema = z.object({
 export const UniformSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
-  /** Which dress this is (an id in options.json), e.g. "number-3". */
+  /** Which dress this is (an id in options.json), e.g. "number-2". */
   dress: z.string().min(1),
   /** Services that wear it (ids in options.json). One drawing can serve several, as No. 1 does. */
   services: z.array(z.string().min(1)).min(1),

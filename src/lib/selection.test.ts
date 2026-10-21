@@ -27,7 +27,7 @@ const pick = (patch: Partial<Selection>): Selection => ({ ...EMPTY_SELECTION, ..
 const wear = (sel: Selection, uniformId: string) => loadoutFor(sel, uniformById(uniformId), badges, categories, options);
 
 describe('uniform data', () => {
-  it('has No. 1, No. 3 and No. 5 for every service and gender, one drawing each', () => {
+  it('has No. 1, No. 2, No. 5 and No. 5J for every service and gender, one drawing each', () => {
     for (const dress of options.dresses) {
       for (const service of options.services) {
         for (const gender of options.genders) {
@@ -45,8 +45,8 @@ describe('uniform data', () => {
     expect(uniforms.filter((u) => u.dress === 'number-1')).toHaveLength(1);
   });
 
-  it('gives No. 3 and No. 5 a drawing per service and gender, named after its file', () => {
-    expect(uniforms).toHaveLength(13);
+  it('gives No. 2, No. 5 and No. 5J a drawing per service and gender, named after its file', () => {
+    expect(uniforms).toHaveLength(19);
     for (const u of uniforms.filter((x) => x.dress !== 'number-1')) {
       expect(u.id).toBe(`${u.dress}-${u.services[0]}-${u.genders[0]}`);
       expect(u.image).toBe(`uniforms/${u.id}.png`);
@@ -54,7 +54,7 @@ describe('uniform data', () => {
     }
   });
 
-  it('draws the boards, sleeve insignia and sleeve badges of No. 3 and No. 5 from the number-1 perspective sprites', () => {
+  it('draws the boards, sleeve insignia and sleeve badges of No. 2 and No. 5 from the number-1 perspective sprites', () => {
     const sprites = resolveMounted(mountedList, 'number-1', 'army')!;
     for (const u of uniforms.filter((x) => x.dress !== 'number-1')) {
       expect(u.mountedFrom, u.id).toBe('number-1');
@@ -65,7 +65,7 @@ describe('uniform data', () => {
     expect(uniformById('number-1').mountedFrom).toBeUndefined();
   });
 
-  it('has no collar badge spot on No. 3 and No. 5, only the rank and chest badges', () => {
+  it('has no collar badge spot on No. 2 and No. 5, only the rank and chest badges', () => {
     for (const u of uniforms.filter((x) => x.dress !== 'number-1')) {
       expect(branchWorn(u, options), u.id).toBe(false);
       expect(u.anchors.some((a) => a.accepts.includes('gorgets')), u.id).toBe(false);
@@ -81,7 +81,7 @@ describe('uniform data', () => {
     expect(hasSpot('number-1')).toBe(true);
     expect(hasSpot('number-5-army-male')).toBe(true);
     expect(hasSpot('number-5-rsn-female')).toBe(false);
-    expect(hasSpot('number-3-rsaf-male')).toBe(false);
+    expect(hasSpot('number-2-rsaf-male')).toBe(false);
   });
 
   it('moves the chest spots of No. 5 male with its lower pocket flaps and keeps the No. 1 distances', () => {
@@ -95,8 +95,8 @@ describe('uniform data', () => {
 
   it('draws the chest spots of a drawing without flaps where No. 1 has them', () => {
     const at = (id: string) => uniformById(id).anchors.find((a) => a.id === 'left-chest-medals')!;
-    expect(at('number-3-army-male').x).toBe(at('number-1').x);
-    expect(at('number-3-army-male').y).toBe(at('number-1').y);
+    expect(at('number-2-army-male').x).toBe(at('number-1').x);
+    expect(at('number-2-army-male').y).toBe(at('number-1').y);
   });
 });
 
@@ -154,7 +154,7 @@ describe('options', () => {
     const maleOnly = uniforms.map((u): Uniform => (u.dress === 'number-1' ? { ...u, genders: ['male'] } : u));
     const options1 = dressOptions(options, maleOnly, 'army', 'female');
     expect(options1.find((o) => o.id === 'number-1')).toMatchObject({ disabled: true, reason: 'Not drawn yet' });
-    expect(options1.find((o) => o.id === 'number-3')?.disabled).toBeUndefined();
+    expect(options1.find((o) => o.id === 'number-2')?.disabled).toBeUndefined();
   });
 });
 
@@ -163,8 +163,8 @@ describe('uniformFor', () => {
     for (const service of ['army', 'rsaf', 'rsn']) for (const gender of ['male', 'female']) expect(uniformFor(uniforms, 'number-1', service, gender)?.id).toBe('number-1');
   });
 
-  it('picks the drawing of the service and gender for No. 3 and No. 5', () => {
-    expect(uniformFor(uniforms, 'number-3', 'rsn', 'female')?.id).toBe('number-3-rsn-female');
+  it('picks the drawing of the service and gender for No. 2 and No. 5', () => {
+    expect(uniformFor(uniforms, 'number-2', 'rsn', 'female')?.id).toBe('number-2-rsn-female');
     expect(uniformFor(uniforms, 'number-5', 'rsaf', 'male')?.id).toBe('number-5-rsaf-male');
   });
 
@@ -175,7 +175,7 @@ describe('uniformFor', () => {
 });
 
 describe('sanitizeSelection', () => {
-  const full = pick({ service: 'army', gender: 'male', dress: 'number-3', rank: '2LT', branch: 'infantry' });
+  const full = pick({ service: 'army', gender: 'male', dress: 'number-2', rank: '2LT', branch: 'infantry' });
 
   it('keeps a valid selection as it is', () => {
     expect(sanitizeSelection(full, uniforms, badges, options)).toEqual(full);
@@ -203,7 +203,7 @@ describe('sanitizeSelection', () => {
 
 describe('missingField', () => {
   const one = uniformById('number-1');
-  const three = uniformById('number-3-army-male');
+  const three = uniformById('number-2-army-male');
 
   it('names the first field still to pick, in screen order', () => {
     expect(missingField(EMPTY_SELECTION, null, options)).toBe('Service');
@@ -218,7 +218,7 @@ describe('missingField', () => {
   });
 
   it('does not ask for a branch on a uniform that has no collar badge', () => {
-    expect(missingField(pick({ service: 'army', gender: 'male', dress: 'number-3', rank: '2LT' }), three, options)).toBeNull();
+    expect(missingField(pick({ service: 'army', gender: 'male', dress: 'number-2', rank: '2LT' }), three, options)).toBeNull();
   });
 });
 
@@ -271,8 +271,8 @@ describe('loadoutFor', () => {
     expect(l.notes[0]).toMatch(/gorget.*in place of.*Infantry/i);
   });
 
-  it('wears no collar badge on No. 3 and No. 5, only the rank, and has nothing to say about the branch', () => {
-    for (const id of ['number-3-army-male', 'number-5-rsaf-male', 'number-5-rsn-female']) {
+  it('wears no collar badge on No. 2 and No. 5, only the rank, and has nothing to say about the branch', () => {
+    for (const id of ['number-2-army-male', 'number-5-rsaf-male', 'number-5-rsn-female']) {
       const l = wear(pick({ rank: '3SG', branch: 'infantry' }), id);
       expect(keysOf(l.badges), id).toEqual(['rank-insignia/3sg', 'shoulder-boards/plain']);
       expect(l.notes, id).toEqual([]);
@@ -280,10 +280,10 @@ describe('loadoutFor', () => {
   });
 
   it('leaves a gorget off a uniform with no collar spot and explains it', () => {
-    const l = wear(pick({ rank: 'COL' }), 'number-3-rsaf-male');
+    const l = wear(pick({ rank: 'COL' }), 'number-2-rsaf-male');
     expect(keysOf(l.badges)).toEqual(['shoulder-boards/col']);
     expect(l.notes).toHaveLength(1);
-    expect(l.notes[0]).toMatch(/Colonel.*not shown on No\. 3 RSAF \(male\)/);
+    expect(l.notes[0]).toMatch(/Colonel.*not shown on No. 2 RSAF \(male\)/);
   });
 
   it('wears the same rank items for every service', () => {
@@ -320,7 +320,7 @@ describe('the library', () => {
 
 describe('saved selection', () => {
   it('reads back what was saved', () => {
-    const sel = pick({ service: 'rsn', gender: 'female', dress: 'number-3', rank: 'MAJ', branch: 'signal' });
+    const sel = pick({ service: 'rsn', gender: 'female', dress: 'number-2', rank: 'MAJ', branch: 'signal' });
     expect(parseSelection(JSON.stringify(sel))).toEqual(sel);
   });
 

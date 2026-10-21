@@ -1,14 +1,14 @@
 {
-  "id": "number-3-army-male",
-  "name": "No. 3 Army (male)",
-  "dress": "number-3",
+  "id": "number-2-rsaf-male",
+  "name": "No. 2 RSAF (male)",
+  "dress": "number-2",
   "services": [
-    "army"
+    "rsaf"
   ],
   "genders": [
     "male"
   ],
-  "image": "uniforms/number-3-army-male.png",
+  "image": "uniforms/number-2-rsaf-male.png",
   "mountedFrom": "number-1",
   "width": 741,
   "height": 680,

@@ -30,7 +30,7 @@ Install steps are from https://code.claude.com/docs/en/overview, so check there 
 
 - "Add drag and snap so I can move a placed badge between the spots its category allows. Add tests for any new rules."
 - "Add a quiz mode: show a badge name, I tap where it goes, tell me if it is right."
-- "Add a uniform picker and set up Number 3 using `docs/ADDING_BADGES.md`."
+- "Add a uniform picker and set up Number 2 using `docs/ADDING_BADGES.md`."
 - "Set up Capacitor for Android following `docs/PLAN.md`."
 
 ## Commands

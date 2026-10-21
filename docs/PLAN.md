@@ -32,8 +32,8 @@ Android. Start as a web page to test features.
 - [ ] Drag to move a badge between its allowed spots; snap to anchor
 - [ ] Placement guides with measurements ("1 cm above the pocket") once a regulation source is found
 - [ ] Learning modes: quiz ("place this badge"), checklist, compare with the correct placement
-- [x] Uniform picker; No. 3 and No. 5 drawings registered for every service and gender (anchors copied from No. 1, unverified, flat art)
-- [ ] Collar sprites if No. 3 or No. 5 ever get a collar badge; service-specific rank art for RSAF and RSN (hooks are in place: `artVariants`); a female No. 1 drawing if one is wanted
+- [x] Uniform picker; No. 2 and No. 5 drawings registered for every service and gender (anchors copied from No. 1, unverified, flat art)
+- [ ] Collar sprites if No. 2 or No. 5 ever get a collar badge; service-specific rank art for RSAF and RSN (hooks are in place: `artVariants`); a female No. 1 drawing if one is wanted
 - [ ] Capacitor wrapper: Android first, then iOS
 - [ ] Redo the Number 1 uniform art at higher resolution (the current PNG is 741 x 680)
 
@@ -50,7 +50,7 @@ Android. Start as a web page to test features.
 1. LTG (Lieutenant-General) has a board but no gorget in the data. Left out until a source says otherwise.
 2. Which branches RSAF and RSN have: the project owner says they are the same as the Army's, so all services list the same 12 arms badges.
 3. Rank list order is presentation only (enlistee and specialist ranks first, then the WO, ME and officer boards, in file order). The data has no seniority order.
-4. No. 3 and No. 5 follow the Army No. 1 placement rules (project owner). The SAF PDF section we have covers Army No. 1 only, so the positions on these 12 drawings are read off the pictures: boards, sleeve insignia and sleeve badges are drawn from the number-1 perspective sprites (`mountedFrom`; same shoulders and sleeves), and chest spots follow the drawn pocket flaps (No. 5 male) or the No. 1 coordinates (no flaps).
+4. No. 2 and No. 5 follow the Army No. 1 placement rules (project owner). The SAF PDF section we have covers Army No. 1 only, so the positions on these 12 drawings are read off the pictures: boards, sleeve insignia and sleeve badges are drawn from the number-1 perspective sprites (`mountedFrom`; same shoulders and sleeves), and chest spots follow the drawn pocket flaps (No. 5 male) or the No. 1 coordinates (no flaps).
 5. Incentive badges (pocket flap) have no spot on drawings without a flap.
 6. RSAF and RSN rank art: the same Army art is used for every service until service-specific art exists.
 

@@ -31,8 +31,8 @@ describe('resolveBadgeArt', () => {
   });
 
   it('uses art made for a uniform, whatever the service', () => {
-    const b = board({ artVariants: [{ uniform: 'number-3-rsn-male', path: 'u.png' }] });
-    expect(resolveBadgeArt(b, { service: 'rsn', uniform: 'number-3-rsn-male' })).toBe('u.png');
+    const b = board({ artVariants: [{ uniform: 'number-2-rsn-male', path: 'u.png' }] });
+    expect(resolveBadgeArt(b, { service: 'rsn', uniform: 'number-2-rsn-male' })).toBe('u.png');
     expect(resolveBadgeArt(b, { service: 'rsn', uniform: 'number-1' })).toBe('badges/shoulder-boards/2lt.png');
   });
 
@@ -65,7 +65,7 @@ describe('resolveMounted', () => {
   });
 
   it('gives nothing for a uniform without sprites, so items are drawn flat', () => {
-    expect(resolveMounted([shared], 'number-3-army-male', 'army')).toBeNull();
+    expect(resolveMounted([shared], 'number-2-army-male', 'army')).toBeNull();
     expect(resolveMounted([rsaf], 'number-1', 'army')).toBeNull();
   });
 });

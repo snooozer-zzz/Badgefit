@@ -53,7 +53,7 @@ to the `accepts` list of an anchor in each uniform file. Until a category has an
 ## A new uniform
 
 1. Put the front-view art (transparent PNG) in `public/uniforms/`, named `<dress>-<service>-<gender>.png`
-   (`number-3-rsaf-male.png`); the file `number-1.png` serves every service and gender.
+   (`number-2-rsaf-male.png`); the file `number-1.png` serves every service and gender.
 2. Copy `src/data/uniforms/number-1.json` (same name as the uniform `id`) and change `id`, `name`, `image`,
    `width`, `height` and move the anchors. Three fields say who wears it: `dress` (an id in
    `src/data/options.json`), `services` and `genders` (ids in the same file). One drawing can serve several,
@@ -73,12 +73,12 @@ is the highest y the badges at a spot may reach; it changes nothing on screen, a
 must stay below the shoulder board). Badge and medal sizes are fixed: they never change with the number worn.
 
 Perspective sprites are looked up by uniform id. A uniform whose shoulders and sleeves are in the same place as
-another's can set `mountedFrom` to that uniform's id and use its sprites: all 12 No. 3 and No. 5 drawings use
+another's can set `mountedFrom` to that uniform's id and use its sprites: all 18 No. 2, No. 5 and No. 5J drawings use
 number-1's (checked: the shoulder and sleeve outlines differ by a pixel or two). If a drawing's shoulders or
 sleeves move, drop `mountedFrom` and re-export sprites for it from the pipeline.
 
 Different uniforms can wear different badges. The current page does not say which, so ask the user or
-check the dress regulations before restricting any category per uniform. The rules for No. 3 and No. 5 are the
+check the dress regulations before restricting any category per uniform. The rules for No. 2 and No. 5 are the
 Army No. 1 ones (project owner), except that they have no collar badge or gorget.
 
 ## The selection screen, ranks and branches

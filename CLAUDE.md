@@ -32,11 +32,11 @@ The app opens on the selection screen (Service, Gender, Uniform, Rank, Branch; l
 
 ## Layout
 
-- `src/data/` all content: `categories.json`, `badges.json`, `options.json`, `uniforms/<id>.json` (13: number-1 for every service and gender, number-3/number-5 per service and gender), `schema.ts` (zod)
+- `src/data/` all content: `categories.json`, `badges.json`, `options.json`, `uniforms/<id>.json` (13: number-1 for every service and gender, number-2/number-5 per service and gender), `schema.ts` (zod)
 - `src/lib/placement.ts` pure rules and layout. Add rules here, with tests in `placement.test.ts`
 - `src/components/` UI only. No rules or content in components
 - `public/uniforms/` uniform art, `public/badges/<category>/<slug>.png` redrawn badge art
-- `reference/samples/` the user's own Nano Banana uniform samples (Number 1, 3, 5) and screenshots of the
+- `reference/samples/` the user's own Nano Banana uniform samples (Number 1, 2, 5) and screenshots of the
   Uniformity app that inspired the library and placement-guide screens
 - `scripts/` `validate-data.ts` (data and art checks) and `import-art.ts` (bundle importer)
 - Accessories are ordinary library items: `public/badges/shoulder-boards|rank-insignia|gorgets/<slug>.png`

@@ -1,14 +1,14 @@
 {
-  "id": "number-3-army-female",
-  "name": "No. 3 Army (female)",
-  "dress": "number-3",
+  "id": "number-2-rsn-female",
+  "name": "No. 2 RSN (female)",
+  "dress": "number-2",
   "services": [
-    "army"
+    "rsn"
   ],
   "genders": [
     "female"
   ],
-  "image": "uniforms/number-3-army-female.png",
+  "image": "uniforms/number-2-rsn-female.png",
   "mountedFrom": "number-1",
   "width": 741,
   "height": 680,
