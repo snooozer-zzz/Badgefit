@@ -60,7 +60,7 @@ export const BadgeSchema = z.object({
   usedBy: z.array(z.string()).optional(),
   /** Only one badge of the same group is worn at a time (e.g. "marksmanship"). */
   exclusiveGroup: z.string().optional(),
-  /** Lower numbers go first on a spot, after the category order. Default 0. IPPT is 1: it goes below marksmanship. */
+  /** Lower numbers go first on a spot, after the category order. Default 0. Marksmanship is 1: it goes below IPPT. */
   layoutOrder: z.number().optional(),
   /**
    * Art made for one service and/or one uniform (e.g. an RSAF shoulder board). Leave out while every

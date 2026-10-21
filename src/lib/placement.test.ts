@@ -167,11 +167,22 @@ describe('SAF No.1 Dress rules', () => {
     expect(tabs!.y).toBeLessThan(badgeSpot!.y);
   });
 
-  it('wears the IPPT badge below the marksmanship badge, whichever was picked first', () => {
-    const ippt = get('proficiency', 'ippt-gold');
+  it('wears the marksmanship badge below the IPPT badge, whichever was picked first', () => {
     const marksmanship = get('proficiency', 'marksmanship');
-    const boxes = layoutBadges(uniform, [ippt, marksmanship], categories, 1);
-    expect(boxes.map((b) => badgeKey(b.badge))).toEqual([badgeKey(marksmanship), badgeKey(ippt)]);
+    for (const ippt of [get('proficiency', 'ippt-gold'), get('proficiency', 'ippt-silver')]) {
+      for (const picked of [[ippt, marksmanship], [marksmanship, ippt]]) {
+        const boxes = layoutBadges(uniform, picked, categories, 1);
+        expect(boxes.map((b) => badgeKey(b.badge))).toEqual([badgeKey(ippt), badgeKey(marksmanship)]);
+      }
+    }
+  });
+
+  it('wears either IPPT gold or IPPT silver, never both', () => {
+    const gold = get('proficiency', 'ippt-gold');
+    const silver = get('proficiency', 'ippt-silver');
+    expect(canPlace(uniform, silver, [gold], categories).ok).toBe(false);
+    expect(canPlace(uniform, gold, [silver], categories).ok).toBe(false);
+    expect(canPlace(uniform, silver, [get('proficiency', 'marksmanship')], categories).ok).toBe(true);
   });
 
   it('wears only one marksmanship badge', () => {

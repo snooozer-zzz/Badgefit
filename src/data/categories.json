@@ -44,7 +44,7 @@
     "name": "Proficiency Badges",
     "order": 5,
     "wornOn": "Left shoulder sleeve, centred on the shoulder board, base of the lower badge 15 cm down from the shoulder seam",
-    "description": "Awarded for basic soldiering or physical proficiency. Not more than two can be worn at any one time. IPPT is worn below the marksmanship badge. Only one marksmanship badge is worn.",
+    "description": "Awarded for basic soldiering or physical proficiency. Not more than two can be worn at any one time. The marksmanship badge is worn below the IPPT badge. Only one IPPT badge (gold or silver) and one marksmanship badge is worn.",
     "maxWorn": 2,
     "selectable": true,
     "source": "https://www.army.gov.sg/our-forces/badges/ ; SAF No.1 Dress guideline, March 2024 (SAF+No.1+Dress.pdf), Army No.1, p.15"

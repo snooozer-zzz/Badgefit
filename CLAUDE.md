@@ -56,8 +56,8 @@ The app opens on the selection screen (Service, Gender, Uniform, Rank, Branch; l
   Anything guessed (anchor positions, `widthMm`) must keep `verified: false` / `sizeVerified: false` until
   checked against the dress regulations.
 - A limit shared by several categories on one spot (3 SAF badges on the left chest) is `maxItems` on the anchor.
-  `exclusiveGroup` on a badge means only one of that group is worn (marksmanship). `layoutOrder` puts a badge
-  after the others on its spot (IPPT below marksmanship).
+  `exclusiveGroup` on a badge means only one of that group is worn (marksmanship; IPPT gold or silver). `layoutOrder` puts a badge
+  after the others on its spot (marksmanship below IPPT).
 - Do not ship or commit the official reference photos. Redrawn art only.
 - Art is stored flat and face-on. Never bake perspective into the flat PNG: the on-uniform view comes from
   sprites that the pipeline pre-renders and `npm run art:import` puts in `public/mounted/`.

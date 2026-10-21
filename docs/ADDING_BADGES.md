@@ -40,8 +40,8 @@ Add an object to `src/data/badges.json`:
   Read the pictures as well as the text: the 6 cm, 1 cm and 15 cm are drawn there.
 - Where the two differ, ask the project owner which wins. Write the source in the category's `source`.
 
-Rules that need data on a badge: `exclusiveGroup` (only one of the group is worn, e.g. `"marksmanship"`) and
-`layoutOrder` (higher number goes after, e.g. IPPT is 1 so it sits below marksmanship). A limit shared by
+Rules that need data on a badge: `exclusiveGroup` (only one of the group is worn, e.g. `"marksmanship"` or `"ippt"` for gold/silver) and
+`layoutOrder` (higher number goes after, e.g. marksmanship is 1 so it sits below IPPT). A limit shared by
 several categories on one spot is `maxItems` on the anchor.
 
 ## A new category

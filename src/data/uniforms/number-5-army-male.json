@@ -116,7 +116,7 @@
         "gapPx": 8
       },
       "verified": false,
-      "note": "Not more than two proficiency badges. SAF No.1 Dress PDF (March 2024) p.15: centred on the shoulder board, base of the LOWER badge 15 cm down the sleeve from the shoulder seam; IPPT below the marksmanship badge. Position is a guess (scale not calibrated). The perspective sprites come from the badge-art-pipeline bundle and still use the older \"first badge 15 cm down\" spacing, so they need a re-export. Same placement as number-1 (project owner)."
+      "note": "Not more than two proficiency badges. SAF No.1 Dress PDF (March 2024) p.15: centred on the shoulder board, base of the LOWER badge 15 cm down the sleeve from the shoulder seam; marksmanship below the IPPT badge (project owner). Position is a guess (scale not calibrated). The perspective sprites come from the badge-art-pipeline bundle and still use the older \"first badge 15 cm down\" spacing, so they need a re-export. Same placement as number-1 (project owner)."
     },
     {
       "id": "left-sleeve-tabs",

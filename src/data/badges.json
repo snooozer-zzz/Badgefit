@@ -6,7 +6,7 @@
     "status": "redrawn",
     "widthMm": 30,
     "sizeVerified": false,
-    "layoutOrder": 1,
+    "exclusiveGroup": "ippt",
     "referenceUrl": "https://isomer-user-content.by.gov.sg/128/7b5144ac-cee7-4582-84f1-10fb19a18b65/ippt-gold.png"
   },
   {
@@ -16,7 +16,7 @@
     "status": "redrawn",
     "widthMm": 30,
     "sizeVerified": false,
-    "layoutOrder": 1,
+    "exclusiveGroup": "ippt",
     "referenceUrl": "https://isomer-user-content.by.gov.sg/128/dc4ad405-fe92-41de-a389-29270fae1a6a/ippt-silver.png"
   },
   {
@@ -27,6 +27,7 @@
     "widthMm": 45,
     "sizeVerified": false,
     "exclusiveGroup": "marksmanship",
+    "layoutOrder": 1,
     "referenceUrl": "https://isomer-user-content.by.gov.sg/128/63f56554-ff71-4d78-9213-ac2469f4f34e/marksmanship.png"
   },
   {

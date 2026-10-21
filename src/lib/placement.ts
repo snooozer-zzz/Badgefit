@@ -193,7 +193,7 @@ function rowOf(anchor: Anchor, items: Badge[], firstSlot: number, edgeY: number,
 
 /**
  * Arranges placed badges around their anchors. Badges sharing an anchor are ordered by category
- * order (so exceptional skills come before skills), then by layoutOrder (IPPT below marksmanship),
+ * order (so exceptional skills come before skills), then by layoutOrder (marksmanship below IPPT),
  * then by the order they were added.
  * `scale` enlarges badges for readability; 1 = real-world size from widthMm and pxPerMm.
  * Gaps between spots (stackAbove) are real distances, so `scale` does not change them.
